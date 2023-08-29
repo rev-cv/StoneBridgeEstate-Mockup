@@ -1,8 +1,9 @@
 .page-main-content {
-    font-size: 20;
+    font-size: 20px;
     margin-left: 4.5em;
     display: flex;
     flex-direction: column;
+
 }
 
 
@@ -16,6 +17,7 @@
     display: flex;
     justify-content: space-between;
     height: 18em;
+    overflow: hidden;
 
     
 }
@@ -138,6 +140,8 @@
     grid-gap: 1em;
 
     margin: 5em 0;
+    overflow: hidden;
+
 }
 
 .page-main-content-middle-coub-1 {
@@ -211,9 +215,8 @@ video::-webkit-media-controls {
 }
 
 .page-main-content-video {
-    /* width: 100%;
-    height: 10em; */
-    width: 100%;
+    min-width: 100%;
+    /* min-height: 100%; */
     z-index: 0;
     position: absolute;
 }
@@ -232,4 +235,38 @@ video::-webkit-media-controls {
 
     background-color: var(--blur-color);
     border-radius: 5px;
+}
+
+
+
+@media (max-width: 930px) {
+    .page-main-content-middle {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 14em);
+    }
+
+    .page-main-content-middle-coub-1, 
+    .page-main-content-middle-coub-2, 
+    .page-main-content-middle-coub-3, 
+    .page-main-content-middle-coub-4 {
+        grid-column: 1 / -1;
+    }
+
+    .page-main-content {
+        margin: 0;
+        margin-top: 4.5em;
+    }
+
+    .page-main-content-middle-coub-1,
+    .page-main-content-middle-coub-3 {
+        /* background-color: red; */
+        margin-left: -5em;
+    }
+
+    .page-main-content-middle-coub-2,
+    .page-main-content-middle-coub-4 {
+        /* background-color: red; */
+        margin-right: -5em;
+    }
+    
 }

@@ -1,8 +1,7 @@
 footer {
-    font-size: 20;
+    font-size: 20px;
     margin-left: 4.5em;
     background: linear-gradient(97deg, #242827 0%, #373737 0.01%, #181C21 100%);
-    height: 15em;
     margin-top: 5em;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -31,7 +30,7 @@ footer {
 }
 
 .footer-form-title {
-    font-size: .8em;
+    font-size: 1em;
     font-weight: 500;
     color: #E3E3E3;
     padding-bottom: .7em;
@@ -53,4 +52,35 @@ footer {
     fill: #E3E3E3;
     stroke: #E3E3E3;
     padding: .2em;
+}
+
+.footer-form > input {
+    min-width: 60%;
+    align-self: center;
+}
+
+
+@media (max-width: 930px) {
+    footer {
+        grid-template-columns: 1fr;
+        margin-left: 0;
+    }
+
+    .footer-contacts {
+        grid-row: 1 / 2;
+    }
+
+    .footer-contacts-point {
+        text-align: center;
+    }
+
+    .footer-contacts-social {
+        order: -1;
+        align-self: center;
+    }
+
+    .footer-form, .footer-contacts{
+        padding: 1em 3em;
+    }
+
 }
