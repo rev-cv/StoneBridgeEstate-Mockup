@@ -1,0 +1,72 @@
+
+header {
+    position: fixed;
+    width: 4.5em;
+    height: 100%;
+    background-color: #E3E3E3;
+    box-shadow: 10px 0px 20px 0px rgba(0, 0, 0, 0.13);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-btn-open {
+    background-color: transparent;
+    transition: opacity .5s linear;
+    margin: 2em 0;
+}
+
+
+#ico-menu {
+    fill: #3E3F40;
+}
+
+.menu-btn-open:hover, .menu-btns:hover, .menu-bottom-text:hover {
+    opacity: .6;
+}
+
+.menu-logo {
+    width: 3em;
+    height: 3em;
+}
+
+.menu-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(97deg, #242827 0%, #373737 0.01%, #181C21 100%);
+    height: 35%;
+    width: 100%;
+}
+
+.menu-bottom > .menu-btns > .icon {
+    font-size: 20px;
+    width: 1em;
+    height: 1em;
+}
+
+#whatsapp, #ico-email {
+    fill: #E3E3E3;
+}
+
+.menu-bottom-text {
+    background-color: transparent;
+    color: #E3E3E3;
+    font-size: .8em;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    transition: opacity .5s linear;
+}
+
+.menu-btns {
+    background-color: transparent;
+    transition: opacity .5s linear;
+}

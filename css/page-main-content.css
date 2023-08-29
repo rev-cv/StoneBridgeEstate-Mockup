@@ -1,0 +1,235 @@
+.page-main-content {
+    font-size: 20;
+    margin-left: 4.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+
+:root {
+    --blur-color: rgba(62, 63, 64,.3);
+}
+
+/* CONTENT TOP */
+
+.page-main-content-top{
+    display: flex;
+    justify-content: space-between;
+    height: 18em;
+
+    
+}
+
+.page-main-content-top-header{
+    /* width: 30%; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.page-main-content-top-advertising {
+    width: 70vw;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.page-main-content-middle-coub-1 > img, 
+.page-main-content-middle-coub-2 > img, 
+.page-main-content-middle-coub-3 > img, 
+.page-main-content-middle-coub-4 > img,
+.page-main-content-top-advertising > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+    position: absolute;
+    /* opacity: .5; */
+    z-index: 0;
+}
+
+.page-main-content-top-advertising-title {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    z-index: 1;
+    color: #E3E3E3;
+    letter-spacing: -0.6px;
+    text-align: center;
+    font-weight: 500;
+    z-index: 1;
+    backdrop-filter: blur(2px);
+    background-color: var(--blur-color);
+    border-radius: 5px;
+    padding: .3em;
+}
+
+.page-main-content-top-advertising-more {
+    font-size: 1em;
+    margin-bottom: 1em;
+    z-index: 1;
+    color: #E3E3E3;
+    letter-spacing: -0.6px;
+    background-color: var(--blur-color);
+    backdrop-filter: blur(2px);
+    border-radius: 5px;
+    padding: .3em;
+}
+
+.page-main-content-middle-coub-1::before, 
+.page-main-content-middle-coub-2::before, 
+.page-main-content-middle-coub-3::before, 
+.page-main-content-middle-coub-4::before,
+.page-main-content-top-advertising::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--blur-color);
+    transition: all .3s ease;
+    z-index: 1;
+}
+
+.page-main-content-top-h, .page-main-content-top-h-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center;
+    padding: 0 1em;
+}
+
+.page-main-content-top-h-text {
+    /* transform: translateX(2em); */
+    z-index: 2;
+}
+
+.page-main-content-top-h-text-header{
+    font-size: 1.55em;
+    color: #3E3F40;
+    text-align: center;
+    letter-spacing: -0.9px;
+    white-space: nowrap;
+}
+
+.page-main-content-top-h-text-tagline {
+    font-size: 1em;
+    color: #3E3F40;
+    text-align: center;
+    margin: .6em 0;
+}
+
+
+
+
+/* CONTENT MIDDLE */
+
+.page-main-content-middle {
+    font-size: 1em;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 14em 14em;
+    padding: 0 2em;
+    grid-gap: 1em;
+
+    margin: 5em 0;
+}
+
+.page-main-content-middle-coub-1 {
+    /* background-color: red; */
+    grid-column: 1 / 5;
+}
+
+.page-main-content-middle-coub-2 {
+    /* background-color: green; */
+    grid-column: 5 / -1;
+}
+
+.page-main-content-middle-coub-3 {
+    /* background-color: goldenrod; */
+    grid-column: 1 / 4;
+}
+.page-main-content-middle-coub-4 {
+    /* background-color: bisque; */
+    grid-column: 4 / -1;
+}
+
+
+.page-main-content-middle-coub-1, 
+.page-main-content-middle-coub-2, 
+.page-main-content-middle-coub-3, 
+.page-main-content-middle-coub-4 {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-main-content-middle-coub-title {
+    font-size: 2em;
+    margin-bottom: 1em;
+    z-index: 1;
+    color: #E3E3E3;
+    letter-spacing: -0.6px;
+    text-align: center;
+    font-weight: 500;
+    z-index: 1;
+
+    backdrop-filter: blur(2px);
+
+    background-color: var(--blur-color);
+    border-radius: 5px;
+    padding: .3em;
+}
+
+video::-webkit-media-controls {
+    display: none;
+}
+  
+
+
+.page-main-content-bottom{
+    font-size: 1em;
+    padding: 0 2em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+	height: 24em;
+
+    overflow: hidden;
+    position: relative;
+
+}
+
+.page-main-content-video {
+    /* width: 100%;
+    height: 10em; */
+    width: 100%;
+    z-index: 0;
+    position: absolute;
+}
+
+.page-main-content-bottom-title{
+    color: #E3E3E3;
+    font-size: 2em;
+    font-weight: 500;
+
+    padding: 2em;
+    text-align: center;
+
+    z-index: 1;
+
+    backdrop-filter: blur(2px);
+
+    background-color: var(--blur-color);
+    border-radius: 5px;
+}
