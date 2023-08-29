@@ -1,7 +1,19 @@
+
 function toogleMenu() {
-    console.log("ok")
+    let menu = document.querySelector(".expanded-header")
+
+    if (menu.classList.contains("expanded-header-show")){
+        menu.classList.remove("expanded-header-show")
+    } else {
+        menu.classList.add("expanded-header-show")
+    }
+
 }
 
 
-let btnConnectShowMenu = document.querySelector("#btn-connect-show-menu")
-btnConnectShowMenu.onclick = toogleMenu;
+
+let btns = document.querySelectorAll(".btn-connect-show-menu")
+
+for (var i in btns){
+	btns[i].onclick = toogleMenu;
+};

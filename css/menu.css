@@ -55,7 +55,7 @@ header {
     height: 1em;
 }
 
-#ico-whatsapp, #ico-email {
+menu-bottom > #ico-whatsapp, menu-bottom > #ico-email {
     fill: #E3E3E3;
 }
 

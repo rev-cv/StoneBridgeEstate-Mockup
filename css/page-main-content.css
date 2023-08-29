@@ -3,7 +3,6 @@
     margin-left: 4.5em;
     display: flex;
     flex-direction: column;
-
 }
 
 
@@ -18,8 +17,6 @@
     justify-content: space-between;
     height: 18em;
     overflow: hidden;
-
-    
 }
 
 .page-main-content-top-header{
@@ -40,6 +37,8 @@
     justify-content: center;
     align-items: center;
 
+    animation-name: anime-page-main-advertising;
+    animation-duration: 4s;
 }
 
 .page-main-content-middle-coub-1 > img, 
@@ -106,6 +105,14 @@
     padding: 0 1em;
 }
 
+.page-main-content-top-h > .search {
+    margin-bottom: .5em;
+    animation-name: anime-page-main-top-search;
+    animation-fill-mode: backwards;
+    animation-duration: 500ms;
+    animation-delay: 3000ms;
+}
+
 .page-main-content-top-h-text {
     /* transform: translateX(2em); */
     z-index: 2;
@@ -117,6 +124,11 @@
     text-align: center;
     letter-spacing: -0.9px;
     white-space: nowrap;
+
+    animation-name: anime-page-main-top-header;
+    animation-fill-mode: backwards;
+    animation-duration: 1000ms;
+    animation-delay: 1000ms;
 }
 
 .page-main-content-top-h-text-tagline {
@@ -124,9 +136,21 @@
     color: #3E3F40;
     text-align: center;
     margin: .6em 0;
+
+    animation-name: anime-page-main-top-tagline;
+    animation-fill-mode: backwards;
+    animation-duration: 500ms;
+    animation-delay: 1500ms ;
 }
 
+.page-main-content-top-h-btn {
+    animation-name: anime-page-main-top-tagline;
+    animation-fill-mode: backwards;
+    animation-duration: 500ms;
+    animation-delay: 2000ms ;
+}
 
+/*  */
 
 
 /* CONTENT MIDDLE */
@@ -147,20 +171,41 @@
 .page-main-content-middle-coub-1 {
     /* background-color: red; */
     grid-column: 1 / 5;
+
+    animation-name: anime-page-main-top-middle-point-left;
+    animation-fill-mode: backwards;
+    animation-duration: 1000ms;
+    animation-delay: 2000ms ;
+    
 }
 
 .page-main-content-middle-coub-2 {
     /* background-color: green; */
     grid-column: 5 / -1;
+
+    animation-name: anime-page-main-top-middle-point-right;
+    animation-fill-mode: backwards;
+    animation-duration: 1000ms;
+    animation-delay: 2100ms ;
 }
 
 .page-main-content-middle-coub-3 {
     /* background-color: goldenrod; */
     grid-column: 1 / 4;
+
+    animation-name: anime-page-main-top-middle-point-left;
+    animation-fill-mode: backwards;
+    animation-duration: 1000ms;
+    animation-delay: 2200ms ;
 }
 .page-main-content-middle-coub-4 {
     /* background-color: bisque; */
     grid-column: 4 / -1;
+
+    animation-name: anime-page-main-top-middle-point-right;
+    animation-fill-mode: backwards;
+    animation-duration: 1000ms;
+    animation-delay: 2300ms ;
 }
 
 
@@ -197,8 +242,6 @@ video::-webkit-media-controls {
     display: none;
 }
   
-
-
 .page-main-content-bottom{
     font-size: 1em;
     padding: 0 2em;
@@ -212,6 +255,10 @@ video::-webkit-media-controls {
     overflow: hidden;
     position: relative;
 
+    animation-name: anime-page-main-video;
+    animation-fill-mode: backwards;
+    animation-duration: 1500ms;
+    animation-delay: 2300ms ;
 }
 
 .page-main-content-video {
@@ -236,8 +283,6 @@ video::-webkit-media-controls {
     background-color: var(--blur-color);
     border-radius: 5px;
 }
-
-
 
 @media (max-width: 930px) {
     .page-main-content-middle {
@@ -268,5 +313,120 @@ video::-webkit-media-controls {
         /* background-color: red; */
         margin-right: -5em;
     }
-    
+
+    .page-main-content-top {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .page-main-content-top-advertising {
+        width: auto;
+        order: -1;
+        height: 14em;
+    }
+
+    .page-main-content-top-h{
+        padding-top: 4.5em;
+    }
+}
+
+
+
+
+
+@keyframes anime-page-main-advertising {
+	0% {  
+		transform: translate(-20%, -20%) scale(1.4);
+        opacity: 0;
+	} 
+    30% {
+        opacity: .4;
+    }
+	50% {
+		transform: translate(0%, 0%) scale(1.1);
+	} 
+    100% {
+        opacity: 1;
+        transform: translate(0%, 0%) scale(1);
+    }
+}
+
+
+@keyframes anime-page-main-top-header {
+	0% {  
+		transform: translateX(-30%) scale(1.2);
+        opacity: 0;
+	} 
+    70%{
+        opacity: 1;
+    }
+	100% {
+		transform: translateX(0%) scale(1);
+	} 
+}
+
+@keyframes anime-page-main-top-tagline {
+	0% {  
+		transform: translateY(-30%);
+        opacity: 0;
+	} 
+    70%{
+        opacity: 1;
+    }
+	100% {
+		transform: translateY(0%);
+	} 
+}
+
+@keyframes anime-page-main-top-search {
+	0% {  
+		transform: translateY(30%);
+        opacity: 0;
+	} 
+    70%{
+        opacity: .4;
+    }
+	100% {
+		transform: translateY(0%);
+        opacity: 1;
+	} 
+}
+
+@keyframes anime-page-main-top-middle-point-right {
+    0% {  
+		transform: translateX(40%);
+        opacity: 0;
+	} 
+    50%{
+        opacity: .2;
+
+    }
+	100% {
+		transform: translateY(0%) scale(1);
+        opacity: 1;
+	} 
+}
+
+@keyframes anime-page-main-top-middle-point-left {
+    0% {  
+		transform: translateX(-40%);
+        opacity: 0;
+	} 
+    50%{
+        opacity: .2;
+
+    }
+	100% {
+		transform: translateY(0%) scale(1);
+        opacity: 1;
+	} 
+}
+
+@keyframes anime-page-main-video {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
