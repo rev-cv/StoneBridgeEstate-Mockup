@@ -1,17 +1,83 @@
 .btn-submit {
-    padding: 10px 21px;
+    padding: .5em 1em;
     border-radius: 11px;
-    background: var(--unnamed, linear-gradient(90deg, #082E54 0%, #0A3560 100%));
+    background: linear-gradient(90deg, #082E54 0%, #0A3560 100%);
     align-self: center;
     color: #E3E3E3;
     font-size: .8em;
+    border: 1px solid transparent;
+
+    transition: all .5s linear;
+}
+
+.btn-submit-light {
+    padding: .5em 1em;
+    border-radius: 11px;
+    background: #E3E3E3;
+    align-self: center;
+    color: var(--indigo-color);
+    font-size: .8em;
+    border: 1px solid var(--indigo-color);
+    
+    transition: all .5s linear;
+}
+
+.btn-submit:hover, 
+.btn-submit-light:hover {
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.15), -10px -10px 20px 0px rgba(0, 0, 0, 0.15);
 }
 
 input {
+    font-size: .85em;
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #E3E3E3;
     color: #E3E3E3;
     margin-bottom: .7em;
     padding: .2em;
+}
+
+.search {
+    font-size: 20px;
+    border: 1px solid var(--black-color);
+    border-radius: 4px;
+
+    display: flex;
+    align-items: center;
+    padding: .3em .4em;
+
+}
+
+.search > svg {
+    width: 1em;
+    height: 1em;
+    stroke: var(--black-color);
+    fill: transparent;
+}
+
+.search > input {
+    color: var(--black-color);
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.call-me-pretty {
+    font-size: 8px;
+    width: 9em;
+    height: 9em;
+    border-radius: 5em;
+    background-color: var(--indigo-color);
+
+    position: fixed;
+
+    bottom: 4.5em;
+    right: 4.5em;
+    z-index: 19;
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.15), -10px -10px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.call-me-pretty > svg {
+    width: 4.5em;
+    height: 4.5em;
+    fill: var(--white-color);
 }

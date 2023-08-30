@@ -1,0 +1,94 @@
+
+.curtain-1, .curtain-2, .curtain-3 {
+    background-color: rgba(196, 196, 196, 0.15);
+    height: 100vh;
+    width: 50%;
+    position: fixed;
+    z-index: 20;
+    transform: skewX(20deg) translateX(200vw);
+    
+    animation-fill-mode: backwards;
+    animation-duration: 1000ms;
+
+    transition: transform 1s linear;
+}
+
+.curtain-1 {
+    /* background-color: greenyellow; */
+    animation-name: anime-curtain-1;
+    transform: skewX(20deg) translateX(-25vw);
+}
+
+.curtain-2 {
+    /* background-color: yellow; */
+    animation-name: anime-curtain-2;
+    transform: skewX(20deg) translateX(25vw);
+}
+
+.curtain-3 {
+    /* background-color: red; */
+    animation-name: anime-curtain-3;
+    transform: skewX(20deg) translateX(75vw);
+}
+
+.curtain-main {
+    background-color: rgba(196, 196, 196, 0.15);
+    z-index: 20;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    animation-name: anime-curtain-mine;
+    animation-fill-mode: both;
+    animation-duration: 1000ms;
+    animation-delay: 1s;
+}
+
+
+@keyframes anime-curtain-mine {
+    from {
+        backdrop-filter: blur(0px);
+        opacity: 0;
+    }
+    to {
+        backdrop-filter: blur(5px);
+        opacity: 1;
+    }
+}
+
+
+@keyframes anime-curtain-1 {
+    from {
+        transform: skewX(20deg) translateX(200vw);
+        opacity: 0;
+    }
+    to {
+        transform: skewX(20deg) translateX(-25vw);
+        opacity: 1;
+    }
+}
+
+@keyframes anime-curtain-2 {
+    from {
+        transform: skewX(20deg) translateX(200vw);
+        opacity: 0;
+    }
+    to {
+        transform: skewX(20deg) translateX(25vw);
+        opacity: 1;
+    }
+}
+
+@keyframes anime-curtain-3 {
+    from {
+        transform: skewX(20deg) translateX(200vw);
+        opacity: 0;
+    }
+    to {
+        transform: skewX(20deg) translateX(75vw);
+        opacity: 1;
+    }
+}

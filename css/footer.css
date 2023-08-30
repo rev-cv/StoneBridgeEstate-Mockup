@@ -7,13 +7,11 @@ footer {
     grid-template-columns: 1fr 1fr;
 }
 
-
 .footer-form, .footer-contacts {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-self: center;
-
     padding: 3em 4.2em;
 }
 
@@ -22,11 +20,15 @@ footer {
     font-size: .7em;
     letter-spacing: -0.16px;
     padding: .5em;
+    display: flex;
+    align-items: center;
 }
 
 .footer-contacts-point > svg {
-    width: .7em;
-    height: .7em;
+    width: 1em;
+    height: 1em;
+    stroke: #E3E3E3;
+    margin-right: .5em;
 }
 
 .footer-form-title {
@@ -37,28 +39,28 @@ footer {
     text-align: center;
 }
 
-
 .footer-contacts-social {
     padding: .5em;
     display: flex;
 }
 
-.footer-contacts-social > .icon {
-    width: 1.5em;
-    height: 1.5em;
-}
-
 .footer-contacts-social > a > svg  {
     fill: #E3E3E3;
-    stroke: #E3E3E3;
-    padding: .2em;
+    padding-left: .4em;
+    width: 2em;
+    height: 2em;
+}
+
+.footer-contacts-social > a:hover {
+    transform: scale(1.1);
+    transition: transform 1s linear;
 }
 
 .footer-form > input {
-    min-width: 60%;
+    max-width: 50%;
+    min-width: 20em;
     align-self: center;
 }
-
 
 @media (max-width: 930px) {
     footer {
@@ -82,5 +84,4 @@ footer {
     .footer-form, .footer-contacts{
         padding: 1em 3em;
     }
-
 }

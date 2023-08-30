@@ -9,36 +9,38 @@
     flex-direction: column;
     justify-content: space-between;
 
-    z-index: 20;
+    z-index: 21;
     transform-origin: left;
 
     overflow: hidden;
 
     transform: translateX(-100%);
-    opacity: 0;
+    opacity: .5;
 
-
-    transition-property: transform opacity;
-	transition-duration: 1600ms;
+    transition-property: transform, opacity;
+	transition-duration: 1000ms, 1500ms;
     transition-timing-function: cubic-bezier(1, 0, .38, 1);
+}
 
+.expanded-header-menu-btn-menu {
+    margin: 2em 2em 0 2em;
+}
+
+.expanded-header-menu-btn-menu > svg {
+    width: 2em;
+    height: 2em;
 }
 
 .expanded-header-show {
     transform: translateX(0);
     opacity: 1;
-
 }
-
 
 .expanded-header-menu {
     height: 4.5em;
-
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-left: 1.5em;
-    margin-bottom: 4em;
 }
 
 .expanded-header-menu > button {
@@ -47,41 +49,56 @@
 
 .expanded-header-line {
     width: 80%;
-    height: 2px;;
-    background-color: #3E3F40;
+    min-height: 2px;
+    background-color: var(--black-color-50);
     align-self: flex-end;
-    opacity: .5;
-    margin-top: 1em;
-    margin-bottom: 1.5em;
+    margin: 1em 0 ;
+
+    /* ↓ блок для анимации */
+    opacity: 0;
+    transform: translateY(1em);
+    transition: all 600ms linear;
 }
 
 .expanded-header-caption-big,
 .expanded-header-caption-little{
     font-size: 1.55em;
-    color: #3E3F40;
+    color: var(--black-color);
     text-align: center;
     letter-spacing: -0.9px;
     white-space: nowrap;
     margin-left: 20%;
+
+    /* ↓ блок для анимации */
+    opacity: 0;
+    transform: translateY(1em);
+    transition: all 600ms linear;
 }
+
 .expanded-header-caption-little{
-    font-size: 1.2em;
-    opacity: .5;
+    font-size: 1em;
+    color: var(--black-color-50);
 }
 
 .expanded-header-nav{
     display: flex;
     flex-direction: column;
     margin-left: 20%;
+    transition: all 600ms linear;
 }
 
 .expanded-header-nav-level-1,
 .expanded-header-nav-level-2 {
-    color: #3E3F40;
+    color: var(--black-color);
     font-size: 1.1em;
     font-weight: 500;
     letter-spacing: -0.2px;
     padding: 0.4em 0;
+
+    /* ↓ блок для анимации */
+    opacity: 0;
+    transform: translateY(1em);
+    transition: all 600ms linear;
 }
 
 .expanded-header-nav-level-2 {
@@ -89,24 +106,29 @@
     padding-left: 1em;
 }
 
-.expanded-header-submit {
-    color: #3E3F40;
-    font-size: 1em;
-    margin-left: 20%;
-}
-
 .expanded-header-stretcher {
+    display: flex;
     flex-grow: 1;
+    flex-direction: column;
 }
 
 .expanded-header-submit {
     padding: 0.4em 0;
     text-align: left;
     font-size: 1.1em;
-    color: #3E3F40;
+    color: var(--black-color);
     font-weight: 500;
     letter-spacing: -0.2px;
     background-color: transparent;
+    margin-left: 20%;
+
+    display: flex;
+    align-items: center;
+
+    /* ↓ блок для анимации */
+    opacity: 0;
+    transform: translateY(1em);
+    transition: all 600ms linear;
 }
 
 .expanded-header-submit > svg,
@@ -115,19 +137,57 @@
     height: 1em;
     display: inline-flex;
     align-items: center;
-}
-
-.expanded-header-submit .icon{
-    fill: #3E3F40;
+    fill: var(--black-color);
+    margin-right: .5em;
+    
 }
 
 .expanded-header-contacts {
+    font-size: .8em;
     margin-left: 20%;
     margin-bottom: 3em;
 }
 
 .expanded-header-contacts-point {
     padding: 0.4em 0;
+    display: flex;
+    align-items: center;
+
+    /* ↓ блок для анимации */
+    opacity: 0;
+    transform: translateY(1em);
+    transition: all 600ms linear;
+}
+
+.expanded-header-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    margin: 0 20%;
+
+    /* ↓ блок для анимации */
+    display: none;
+    opacity: 0;
+    transform: translateX(1em);
+    transition: all 600ms linear;
+}
+
+.expanded-header-form > input {
+    color: var(--black-color);
+    font-size: 1.2em;
+    margin: 1em 0;
+    border-bottom: 2px solid var(--black-color-50);
+}
+
+.expanded-header-form-btns {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0;
+}
+
+.expanded-header-form-btns > button {
+    font-size: 1.05em;
 }
 
 @media (max-width: 930px) {
@@ -148,21 +208,4 @@
         align-self: center;
     }
     
-}
-
-
-@keyframes anime-opening-sidebar {
-    0% {
-        opacity: 0;
-        transform: scaleX(0);
-        
-        display: none;
-    }
-    1% {
-        display: flex;
-    }
-    100% {
-        opacity: 1;
-        transform: scaleX(1);
-    }
 }
