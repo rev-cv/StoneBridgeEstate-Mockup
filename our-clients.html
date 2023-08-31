@@ -12,13 +12,13 @@
     <link rel="stylesheet" type="text/css" href="css/menu2.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
-    <link rel="stylesheet" type="text/css" href="css/page-about-content.css">
+    <link rel="stylesheet" type="text/css" href="css/page-out-clients-content.css">
 
     <script src="js/show_menu.js" defer></script>
     <script src="js/show-pop-up.js" defer></script>
     <!-- <script src="js/fade-out-page.js"></script> -->
 
-    <title>Stone Bridge estate — О компании</title>
+    <title>Stone Bridge estate</title>
 </head>
 <body>
 
@@ -174,76 +174,79 @@
 
     <!-- CONTENT -->
 
-    <main class="page-about-content">
-        <div class="page-about-search-panel">
+    <main class="page-our-clients-content">
+        <div class="page-our-clients-search-panel">
             <div class="search">
                 <input type="text" placeholder="Search" >
                 <svg class="icon"><use xlink:href="#ico-search"/></svg>
             </div>
         </div>
 
-        <div class="page-about-bread-crumbs bread-crumbs">
+        <div class="page-our-clients-bread-crumbs bread-crumbs">
             <a class="bread-crumbs-point" href="home.html">Главная</a>
             <div class="bread-crumbs-point">О компании</div>
         </div>
 
-        <div class="about-page-cover-in-header">
-            <img src="img/7b9d1c5c2d2232215116ab306b1cfedb.jpeg" />
-        </div>
+        <div class="our-clients-title">Наши клиенты</div>
 
-        <div class="about-page-company-title">О компании</div>
+        <div class="our-clients-list">
+            <script>
 
-        <div class="about-page-achievements">
-            <div>8</div>
-            <div>лет на рынке</div>
-            <div>400+</div>
-            <div>3500</div>
-            <div>довольных клиентов</div>
-            <div>объктов в базе</div>
-        </div>
-        
-        <div class="about-page-contacts-title">Контакты</div>
+                const ourClientArea = document.querySelector(".our-clients-list");
 
-        <div class="about-page-description">Работаем с 2015 года по принципу Family Service. Наша цель сделать все возможное для того, чтоб вы с уверенностью рекомендовали нас своим друзьям и родственникам. Ориентированы на долгосрочные отношения, основанные на профессионализме, Вашем доверии и нашей ответственности.</div>
+                const ourClientList = [
+                    ["Сбербанк",            "6ed4609d398df7dd0c050d77e369b0d7.png"],
+                    ["SREDA Production",    "00a7943acaf7b1e44c55c2c85ba48e45.png"],
+                    ["PwC",                 "4b0ea936c237e9c0fb20bc70f7f2892e.png"],
+                    ["Macdonalds",          "2cea4c5248ce81214e3fc3a16c02f8ed.png"],
+                    ["H&M",                 "b67f844b95a599226b904f0d80922023.png"],
+                    ["Архитектурное бюро",  "4ed04bbeb4ea22e9dc1e7fffd94c5754.png"],
+                    ["Gork Studio",         "8d6342e1f9c0547ca1d2ea6d1cc494ee.png"],
+                    ["Посольство Пакистана","01c37b31b470769fa0b5f707cbab0ec5.png"],
+                    ["Все инструменты.ру",  "17af7f0d5644db8ba1c3d09d1c2196ec.png"],
+                    ["M.B.A. EMPIRE",        "f3b1a4e04b5ca3533b8d3560c82e70af.png"],
+                    ["Renaissance Construction", "80c4826181144733f9b2326a6ae458bd.png"],
+                    ["TEKTA GOUP",          "2aae6a0bde77c6cd2aec1effc8fc52a0.png"],
+                    ["Lukoil",              "318de16414fde01b705b3abae4606edc.png"],
+                    ["BP Connect",          "a7c8c2cebfaf0ce594aea604cf444ed6.png"],
+                    ["Окей",                "209e585118baf1fb22b8f49a82686ff5.png"],
+                    ["Deworkacy",           "41c7e3fc94b1cca9f9c66ffa488faaa0.png"],
+                    ["Itacom",              "c604e01c06c97ea7d710870c7f2de357.png"],
+                    ["Japan Tobacco Inc.",  "30e6850c88cfca26de200ac9815df361.png"],
+                    ["KAZ Minerals",        "57ae1370d1b1f0681f57aca1d59513a0.png"],
+                    ["VTB 24",              "f7daea69a83f3a929622ca0e8e14a92e.png"],
+                    ["Orica",               "ab8b1be92a26211f8112058da1631f5d.png"],
+                ]
 
-        <div class="about-page-contacts">
-            <div>По любым вопросам, связанным с нашими услугами, обращайтесь:</div>
-            <div>Москва, Оболенский переулок, дом 9 корпус 2</div>
-            <div>
-                <svg class="icon"><use xlink:href="#ico-phone"/></svg>
-                <span>+7 (495) 760-31-21</span>
-            </div>
-            <div>
-                <svg class="icon"><use xlink:href="#ico-email"/></svg>
-                <span>info@sbestate.ru</span>
-            </div>
-        </div>
+                let delay = 1000
 
-        <div class="about-page-form submit-form">
-            <input type="text" placeholder="Имя">
-            <input type="text" placeholder="E-mail">
-            <textarea rows="4" placeholder="Комментарий"></textarea>
-            
-            <div class="submit-form-btns">
-                <button class="pop-up-send btn-submit">Отправить</button>
-            </div>
-        </div>
+                ourClientList.forEach( item => {
 
-        <div class="about-page-bosses">
-            <div>Ген. директор Stone Bridge Estate</div>
-            <div>Керсак Иван</div>
-        </div>
+                    const div = document.createElement('div');
+                    div.className = "our-clients-list-point";
+                    div.style.animationDelay = delay + "ms";
+                    ourClientArea.append(div);
 
-        <div class="about-page-boss-signature">
-            <img src="img/boss-signature.png" />
-        </div>
+                    const div_img = document.createElement('div');
+                    div.append(div_img);
 
-        <div class="about-page-requisites">
-            <div>Реквизиты</div>
-            <div>ООО Стоун Бридж эстейт</div>
-            <div>ИНН 7707337668</div>
-            <div>ОГРН 1157746298654</div>
-            <div>КПП 770401001</div>
+                    const img = document.createElement('img');
+                    img.src = "img/logo/" + item[1]
+                    div_img.append(img);
+
+                    const span = document.createElement('span');
+                    span.innerHTML = item[0]
+                    div.append(span);
+
+                    delay += 200;
+                })
+
+                // <div class="our-clients-list-point">
+                //     <div><img src="" /></div>
+                //     <span>Сбербанк</span>
+                // </div>
+
+            </script>
         </div>
 
     </main>

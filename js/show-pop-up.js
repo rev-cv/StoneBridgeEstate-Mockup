@@ -8,9 +8,8 @@ function openPopUp() {
     setTimeout(() => {
         popUp.style.transform = "translateY(0)"
         popUp.style.opacity = 1
-    }, 1000)
+    }, 600)
 }
-
 
 function closePopUp() {
     let popUpArea = document.querySelector(".pop-up-area");
@@ -21,15 +20,12 @@ function closePopUp() {
 
     setTimeout(() => {
         closeCurtain()
-    }, 600)
+    }, 500)
 
     setTimeout(() => {
         popUpArea.style.display = "none"
     }, 1000)
-
-    
 }
-
 
 document.querySelector(".call-me-pretty").onclick = openPopUp;
 document.querySelector(".pop-up-area").onclick = closePopUp;

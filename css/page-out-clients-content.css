@@ -1,0 +1,110 @@
+
+.page-our-clients-content {
+    margin-left: 4.5em;
+
+}
+
+.page-our-clients-search-panel {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1em;
+
+    animation-name: anime-page-our-clients-elems;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+}
+
+.our-clients-title {
+    font-size: 2em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--black-color);
+    font-weight: 400;
+    padding: 1em;
+
+    animation-name: anime-page-our-clients-elems;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+    animation-delay: 300;
+}
+
+.page-our-clients-bread-crumbs {
+    margin: 2em 0 0 2em;
+
+    animation-name: anime-page-our-clients-elems;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+}
+
+.our-clients-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    animation-name: anime-page-our-clients-elems;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+}
+
+.our-clients-list-point {
+    width: 7em;
+    height: 7em;
+    margin: 1em;
+
+    animation-name: anime-page-our-clients-elems;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+}
+
+.our-clients-list-point > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.our-clients-list-point > div > img {
+    width: 90%;
+	height: 90%;
+	object-fit: contain;
+}
+
+.our-clients-list-point > span {
+    padding-top: .5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .7em;
+    color: var(--black-color);
+    text-align: center;
+}
+
+
+@media (max-width: 930px) {
+    .page-our-clients-content{
+        margin-left: 0;
+        margin-top: 4.5em;
+    }
+
+    .page-our-clients-search-panel {
+        display: none;
+        font-size: 1.5em;
+    }
+}
+
+
+@keyframes anime-page-our-clients-elems {
+	0% {  
+		transform: translateY(30%);
+        opacity: 0;
+	} 
+	100% {
+		transform: translateY(0%);
+        opacity: 1;
+	} 
+}
