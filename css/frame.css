@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap');
 
-
 body {
     font-family: Raleway, sans-serif;
     font-size: 20px;
@@ -10,18 +9,15 @@ body {
 	flex-flow: column;
 
 	overflow-x: hidden;
-
+    background-color: #E3E3E3;
 }
 
 main {
 	flex-grow: 1;
-    background-color: #E3E3E3;
-	
 }
 
-
-/* .icon {
-    width: 2em;
-    height: 2em;
-} */
-
+.fade-out {
+    /* анимация перехода на другую страницу */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}

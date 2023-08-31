@@ -37,6 +37,9 @@ input {
     padding: .2em;
 }
 
+
+/* FORM SEARCH */
+
 .search {
     font-size: 20px;
     border: 1px solid var(--black-color);
@@ -61,6 +64,10 @@ input {
     padding: 0;
 }
 
+
+
+/* BUTTON «CALL ME» */
+
 .call-me-pretty {
     font-size: 8px;
     width: 9em;
@@ -80,4 +87,74 @@ input {
     width: 4.5em;
     height: 4.5em;
     fill: var(--white-color);
+}
+
+
+
+/* BREAD CRUMBS */
+
+.bread-crumbs {
+    display: flex;
+    align-items: center;
+}
+
+.bread-crumbs > .bread-crumbs-point {
+    font-size: .6em;
+    color: var(--black-color-50);
+    transition: color .8s linear;
+}
+
+.bread-crumbs > .bread-crumbs-point::before {
+    content: "|";
+    padding: 0 .5em;
+}
+
+.bread-crumbs > .bread-crumbs-point:hover::before {
+    content: "|";
+    padding: 0 .5em;
+    color: var(--black-color-50)
+}
+
+.bread-crumbs > .bread-crumbs-point:hover {
+    color: var(--black-color)
+}
+
+.bread-crumbs > .bread-crumbs-point:last-child:hover  {
+    color: var(--black-color-50)
+}
+
+.bread-crumbs > .bread-crumbs-point:first-child::before {
+    content: "";
+    padding: 0;
+}
+
+
+/* FORM SUBMIT */
+
+.submit-form-title{
+    color: var(--indigo-color);
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.submit-form > input,
+.submit-form > textarea {
+    color: var(--black-color);
+    border-bottom: 1px solid var(--black-color);
+    margin: .3em 0;
+    background-color: transparent;
+    font-size: .8em;
+    padding: .5em;
+}
+
+.submit-form > textarea {
+    border: 1px solid var(--black-color);
+    border-radius: 4px;
+    margin-top: 1em;
+}
+
+.submit-form-btns{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
 }
