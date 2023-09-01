@@ -21,3 +21,24 @@ main {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(9, 50, 90, .3) rgba(9, 50, 90, .1);
+}
+
+*::-webkit-scrollbar {
+	width: .3rem;
+	height: .3rem;
+}
+
+*::-webkit-scrollbar-track {
+	background-color: rgba(9, 50, 90, .1);
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: rgba(9, 50, 90, .9);
+	border-radius: 8px;
+}
+
+

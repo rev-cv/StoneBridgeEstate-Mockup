@@ -1,13 +1,13 @@
 .btn-submit {
     padding: .5em 1em;
     border-radius: 11px;
-    background: linear-gradient(90deg, #082E54 0%, #0A3560 100%);
+    background: var(--btn-painting);
     align-self: center;
     color: #E3E3E3;
     font-size: .8em;
     border: 1px solid transparent;
 
-    transition: all .5s linear;
+    transition: all .5s ease;
 }
 
 .btn-submit-light {
@@ -19,7 +19,7 @@
     font-size: .8em;
     border: 1px solid var(--indigo-color);
     
-    transition: all .5s linear;
+    transition: all .5s ease;
 }
 
 .btn-submit:hover, 
@@ -157,4 +157,138 @@ input {
     display: flex;
     justify-content: space-between;
     margin-top: 1em;
+}
+
+
+/* SWITCHER */
+
+.switcher{
+    padding: .2em;
+    margin: .5em;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.switcher > button {
+    padding: .5em .5em;
+    align-self: center;
+    font-size: .8em;
+
+    border: 1px solid var(--indigo-color);
+
+    transition: all .5s linear;
+
+    flex-grow: 1;
+}
+
+.switcher > button:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+.switcher > button:last-child {
+    border-radius: 0 4px 4px 0;
+}
+
+.switcher > button[status="false"] {
+    background: var(--white-color);
+    color: var(--btn-painting);
+}
+
+.switcher > button[status="true"] {
+    background: var(--btn-painting);
+    color: var(--white-color);
+}
+
+
+/* CHECKBOX */
+
+.checkbox {
+    margin: .5em .7em;
+
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+  
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+  
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border-radius: 6px;
+
+    transition: all .6s ease;
+}
+  
+.checkbox:hover input ~ .checkmark {
+    background-color: rgba(9, 50, 90, 0.2);
+    transition: all .6s ease;
+}
+  
+.checkbox input:checked ~ .checkmark {
+    background-color: var(--indigo-color);
+}
+  
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+.checkbox .checkmark:after {
+    left: 2px;
+    top: 2px;
+    bottom: 2px;
+    right: 2px;
+    border-radius: 4px;
+    border: solid white;
+}
+
+
+
+/* RANGE */
+
+.range {
+    padding: .2em;
+    margin: .5em .7em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.range > input {
+    padding: .5em .5em;
+    align-self: center;
+    font-size: .8em;
+
+    border: 1px solid var(--black-color);
+    color: var(--black-color);
+
+    transition: all .5s linear;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.range > input:first-child {
+    border-right: 0;
+    border-radius: 4px 0 0 4px;
+}
+
+.range > input:nth-child(2){
+    border-radius: 0 4px 4px 0;
 }

@@ -85,6 +85,7 @@
     flex-direction: column;
     margin-left: 20%;
     transition: all 600ms linear;
+    /* overflow-y: auto; */
 }
 
 .expanded-header-nav-level-1,

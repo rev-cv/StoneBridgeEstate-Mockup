@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -12,13 +13,35 @@
     <link rel="stylesheet" type="text/css" href="css/menu2.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
-    <link rel="stylesheet" type="text/css" href="css/page-out-clients-content.css">
+    <link rel="stylesheet" type="text/css" href="css/page-catalog.content.css">
 
     <script src="js/show_menu.js" defer></script>
     <script src="js/show-pop-up.js" defer></script>
-    <!-- <script src="js/fade-out-page.js"></script> -->
+    <script src="js/catalog-filters.js" defer></script>
 
-    <title>Stone Bridge estate</title>
+    <script>
+        const namePage = "Квартиры"
+
+        // ↓ возможные значения namePage
+        const tit_1 = "Жилая недвижимость"
+        const cat_1 = [
+            "Квартиры", 
+            "Пентхаусы", 
+            "Дома"
+        ]
+        const tit_2 = "Коммеческая недвижримость"
+        const cat_2 = [
+            "Офисы", 
+            "Торговая недвижимость", 
+            "Особняки", 
+            "Street retail"
+        ]
+
+        document.title = `Stone Bridge estate | ${namePage}`
+
+        
+    </script>
+
 </head>
 <body>
 
@@ -174,80 +197,180 @@
 
     <!-- CONTENT -->
 
-    <main class="page-our-clients-content">
-        
-        <div class="page-our-clients-search-panel">
+    <main class="page-catalog-content">
+
+        <div class="page-catalog-search-panel">
             <div class="search">
                 <input type="text" placeholder="Search" >
                 <svg class="icon"><use xlink:href="#ico-search"/></svg>
             </div>
         </div>
 
-        <div class="page-our-clients-bread-crumbs bread-crumbs">
+        <div class="page-catalog-bread-crumbs bread-crumbs">
+
             <a class="bread-crumbs-point" href="home.html">Главная</a>
-            <div class="bread-crumbs-point">О компании</div>
+
+            <script>
+                const crumbs = document.querySelector(".page-catalog-bread-crumbs");
+
+                if (cat_1.includes(namePage)){
+                    const point_crumb = document.createElement('a');
+                    point_crumb.className = "bread-crumbs-point";
+                    point_crumb.href = "cat-1.html";
+                    point_crumb.innerHTML = tit_1;   // Жилая недвижимость
+                    crumbs.append(point_crumb);
+                } else if (cat_2.includes(namePage)) {
+                    const point_crumb = document.createElement('a');
+                    point_crumb.className = "bread-crumbs-point";
+                    point_crumb.href = "cat-2.html"; // Коммеческая недвижримость
+                    point_crumb.innerHTML = tit_2;
+                }
+
+                const last_crumb = document.createElement('div');
+                last_crumb.className = "bread-crumbs-point";
+                last_crumb.innerHTML = namePage;
+                crumbs.append(last_crumb);
+            </script>
+
         </div>
 
-        <div class="our-clients-title">Наши клиенты</div>
+        <div class="page-catalog-body">
 
-        <div class="our-clients-list">
-            <script>
+            <div class="page-catalog-panel-of-filters">
+                
+                <div class="switcher">
+                    <button status='true'>Продажа</button>
+                    <button status='false'>Аренда</button>
+                </div>
 
-                const ourClientArea = document.querySelector(".our-clients-list");
+                <script>
 
-                const ourClientList = [
-                    ["Сбербанк",            "6ed4609d398df7dd0c050d77e369b0d7.png"],
-                    ["SREDA Production",    "00a7943acaf7b1e44c55c2c85ba48e45.png"],
-                    ["PwC",                 "4b0ea936c237e9c0fb20bc70f7f2892e.png"],
-                    ["Macdonalds",          "2cea4c5248ce81214e3fc3a16c02f8ed.png"],
-                    ["H&M",                 "b67f844b95a599226b904f0d80922023.png"],
-                    ["Архитектурное бюро",  "4ed04bbeb4ea22e9dc1e7fffd94c5754.png"],
-                    ["Gork Studio",         "8d6342e1f9c0547ca1d2ea6d1cc494ee.png"],
-                    ["Посольство Пакистана","01c37b31b470769fa0b5f707cbab0ec5.png"],
-                    ["Все инструменты.ру",  "17af7f0d5644db8ba1c3d09d1c2196ec.png"],
-                    ["M.B.A. EMPIRE",        "f3b1a4e04b5ca3533b8d3560c82e70af.png"],
-                    ["Renaissance Construction", "80c4826181144733f9b2326a6ae458bd.png"],
-                    ["TEKTA GOUP",          "2aae6a0bde77c6cd2aec1effc8fc52a0.png"],
-                    ["Lukoil",              "318de16414fde01b705b3abae4606edc.png"],
-                    ["BP Connect",          "a7c8c2cebfaf0ce594aea604cf444ed6.png"],
-                    ["Окей",                "209e585118baf1fb22b8f49a82686ff5.png"],
-                    ["Deworkacy",           "41c7e3fc94b1cca9f9c66ffa488faaa0.png"],
-                    ["Itacom",              "c604e01c06c97ea7d710870c7f2de357.png"],
-                    ["Japan Tobacco Inc.",  "30e6850c88cfca26de200ac9815df361.png"],
-                    ["KAZ Minerals",        "57ae1370d1b1f0681f57aca1d59513a0.png"],
-                    ["VTB 24",              "f7daea69a83f3a929622ca0e8e14a92e.png"],
-                    ["Orica",               "ab8b1be92a26211f8112058da1631f5d.png"],
-                ]
+                    const filterPanel = document.querySelector(".page-catalog-panel-of-filters");
 
-                let delay = 1000
+                    function createCheckBox (string) {
+                        const checkbox = document.createElement('label');
+                        checkbox.className = "checkbox";
+                        checkbox.innerHTML = string;
+                        filterPanel.append(checkbox);
 
-                ourClientList.forEach( item => {
+                        const input = document.createElement('input');
+                        input.type = "checkbox";
+                        input.checked = namePage === string
+                        checkbox.append(input);
 
-                    const div = document.createElement('div');
-                    div.className = "our-clients-list-point";
-                    div.style.animationDelay = delay + "ms";
-                    ourClientArea.append(div);
+                        const checkmark = document.createElement('span');
+                        checkmark.className = "checkmark";
+                        checkbox.append(checkmark);
 
-                    const div_img = document.createElement('div');
-                    div.append(div_img);
+                        // const text = document.createElement('span');
+                        // text.innerHTML = string;
+                        // checkbox.append(text);
 
-                    const img = document.createElement('img');
-                    img.src = "img/logo/" + item[1]
-                    div_img.append(img);
+                        // <label class="checkbox">
+                        //     <input type="checkbox">
+                        //     <span class="checkmark"></span>
+                        //     <span>Текст флажка</span>
+                        // </label>
+                    }
 
-                    const span = document.createElement('span');
-                    span.innerHTML = item[0]
-                    div.append(span);
+                    function addCheckBoxs (checks) {
+                        checks.forEach( item => createCheckBox(item))
+                    }
+                    
+                    addCheckBoxs(cat_1.includes(namePage) | namePage === tit_1 ?  cat_1 : cat_2);
 
-                    delay += 200;
-                })
+                </script>
 
-                // <div class="our-clients-list-point">
-                //     <div><img src="" /></div>
-                //     <span>Сбербанк</span>
-                // </div>
+                <div class="filter-title">Площадь</div>
+                <div class="filter-range-meters range">
+                    <input type="text" placeholder="0 м²">
+                    <input type="text" placeholder="100+ м²">
+                </div>
 
-            </script>
+                <div class="filter-title">Бюджет <button class="filter-switch-price">₽</button></div>
+                <div class="filter-range-price range">
+                    <input type="text" placeholder="0K">
+                    <input type="text" placeholder="999K+">
+                </div>
+
+                <button 
+                    class="filter-switch-districts btn-title"
+                    area-element="filter-switch-district-list"
+                    >Район
+                </button>
+                <div class="filter-switch-district-list"></div>
+
+                <button 
+                    class="filter-switch-stations btn-title"
+                    area-element="filter-switch-station-list"
+                    >Станция метро
+                </button>
+                <div class="filter-switch-station-list"></div>
+
+                <script>
+                    if (cat_1.includes(namePage) | namePage === tit_1) {
+
+                        const roomTitle = document.createElement('div');
+                        roomTitle.className = "filter-title";
+                        roomTitle.innerHTML = "Количество комнат";
+                        filterPanel.append(roomTitle);
+
+                        addCheckBoxs([
+                            "1 комната", "2 комната", "3 комната", "4 комната", "5+ комната"
+                        ])
+                    }
+                </script>
+                
+            </div>
+
+            <div class="page-catalog-cards cards">
+                <script>
+
+                    const catalogCards = document.querySelector(".cards");
+
+                    const values = [
+                        "Продажа", "Квартира", "3 комнаты", 
+                        "Можайское шоссе д. 6к1", "55м²", 
+                        "₽ 35 000 000"
+                    ]
+
+                    for (let i = 0; i < 15; i++) {
+
+                        const card = document.createElement('a');
+                        card.href = "";
+                        catalogCards.append(card);
+                        
+                        const div_img = document.createElement('div');
+                        card.append(div_img);
+
+                        const img = document.createElement('img');
+                        img.src = "img/d140963ae4d58facb8465b6374f1f016.jpeg";
+                        div_img.append(img);
+
+                        const div_values = document.createElement('div');
+                        card.append(div_values);
+
+                        values.forEach( item => {
+                            const val = document.createElement('span');
+                            val.innerHTML = item;
+                            div_values.append(val);
+                        })
+
+                        // <a href="">
+                        //     <div><img src="" alt=""></div>
+                        //     <div>
+                        //         <span>Продажа</span>
+                        //         <span>1 комн.</span>
+                        //         <span>Можайское шоссе д. 6к1</span>
+                        //         <span>55 м²</span>
+                        //         <span>₽ 35 000 000</span>
+                        //     </div>
+                        // </a>
+                    }
+                </script>
+
+                
+            </div>
         </div>
 
     </main>
@@ -296,7 +419,6 @@
             </div>
         </div>
     </div>
-
     
 </body>
 </html>
