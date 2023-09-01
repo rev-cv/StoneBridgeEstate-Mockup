@@ -19,7 +19,7 @@ header {
 
 .menu-btn-open {
     background-color: transparent;
-    transition: opacity .5s linear;
+    transition: opacity .5s ease;
     margin: 2em 0;
 }
 
@@ -94,9 +94,8 @@ header {
 
 @media (max-width: 930px) {
     header {
-        width: 100%;
+        width: 100vw;
         height: 4.5em;
-
     }
 
     .menu-bottom-btn-submit{

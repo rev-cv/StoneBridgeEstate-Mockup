@@ -20,9 +20,14 @@
     <script src="js/catalog-filters.js" defer></script>
 
     <script>
-        const namePage = "Квартиры"
 
-        // ↓ возможные значения namePage
+        // Файлы типа «cat…» являются идентичными
+        // Единственное отличие между ними — переменная namePage
+
+        const namePage = "Жилая недвижимость"
+
+        // ↓ допустимые значения namePage
+
         const tit_1 = "Жилая недвижимость"
         const cat_1 = [
             "Квартиры", 
@@ -38,7 +43,6 @@
         ]
 
         document.title = `Stone Bridge estate | ${namePage}`
-
         
     </script>
 
@@ -102,6 +106,23 @@
                 <!-- fill="#E3E3E3" stroke="#E3E3E3" -->
             </g>
         </symbol>
+
+        <symbol id="ico-setting" viewBox="0 0 36 17">
+            <g>
+                <line y1="2.5" x2="36" y2="2.5" stroke="#3E3F40"/>
+                <circle cx="9.5" cy="2.5" r="2.5" fill="#3E3F40"/>
+                <line y1="8.5" x2="36" y2="8.5" stroke="#3E3F40"/>
+                <circle cx="26.5" cy="8.5" r="2.5" fill="#3E3F40"/>
+                <line y1="14.5" x2="36" y2="14.5" stroke="#3E3F40"/>
+                <circle cx="9.5" cy="14.5" r="2.5" fill="#3E3F40"/>
+            </g>
+        </symbol>
+
+        <symbol id="ico-arrow-slim" viewBox="0 0 60 13">
+            <g>
+                <path d="M1 6.5L6.97576 1M1 6.5L6.97576 12M1 6.5H59" stroke="var(--black-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+        </symbol>
     </svg>
 
     <!-- HEADER -->
@@ -154,14 +175,14 @@
             <nav class="expanded-header-nav">
                 <a class="expanded-header-nav-level-1" href="about.html">О компании</a>
                 <a class="expanded-header-nav-level-1" href="cat-1.html">Жилая недвижимость</a>
-                <a class="expanded-header-nav-level-2" href="">Квартиры</a>
-                <a class="expanded-header-nav-level-2" href="">Пентхаусы</a>
-                <a class="expanded-header-nav-level-2" href="">Дома</a>
-                <a class="expanded-header-nav-level-1" href="">Коммерческая недвижимость</a>
-                <a class="expanded-header-nav-level-2" href="">Офисы</a>
-                <a class="expanded-header-nav-level-2" href="">Торговая недвижимость</a>
-                <a class="expanded-header-nav-level-2" href="">Особняки</a>
-                <a class="expanded-header-nav-level-2" href="">Street retail</a>
+                <a class="expanded-header-nav-level-2" href="cat-1.html">Квартиры</a>
+                <a class="expanded-header-nav-level-2" href="cat-1.html">Пентхаусы</a>
+                <a class="expanded-header-nav-level-2" href="cat-1.html">Дома</a>
+                <a class="expanded-header-nav-level-1" href="cat-2.html">Коммерческая недвижимость</a>
+                <a class="expanded-header-nav-level-2" href="cat-2.html">Офисы</a>
+                <a class="expanded-header-nav-level-2" href="cat-2.html">Торговая недвижимость</a>
+                <a class="expanded-header-nav-level-2" href="cat-2.html">Особняки</a>
+                <a class="expanded-header-nav-level-2" href="cat-2.html">Street retail</a>
                 <a class="expanded-header-nav-level-1" href="our-clients.html">Наши клиенты</a>
             </nav>
 
@@ -206,39 +227,45 @@
             </div>
         </div>
 
-        <div class="page-catalog-bread-crumbs bread-crumbs">
+        <div class="page-catalog-bread-crumbs-container">
+            <div class="page-catalog-bread-crumbs bread-crumbs">
 
-            <a class="bread-crumbs-point" href="home.html">Главная</a>
+                <a class="bread-crumbs-point" href="home.html">Главная</a>
+    
+                <script>
+                    const crumbs = document.querySelector(".page-catalog-bread-crumbs");
+    
+                    if (cat_1.includes(namePage)){
+                        const point_crumb = document.createElement('a');
+                        point_crumb.className = "bread-crumbs-point";
+                        point_crumb.href = "cat-1.html";
+                        point_crumb.innerHTML = tit_1;   // Жилая недвижимость
+                        crumbs.append(point_crumb);
+                    } else if (cat_2.includes(namePage)) {
+                        const point_crumb = document.createElement('a');
+                        point_crumb.className = "bread-crumbs-point";
+                        point_crumb.href = "cat-2.html"; // Коммеческая недвижримость
+                        point_crumb.innerHTML = tit_2;
+                    }
+    
+                    const last_crumb = document.createElement('div');
+                    last_crumb.className = "bread-crumbs-point";
+                    last_crumb.innerHTML = namePage;
+                    crumbs.append(last_crumb);
+                </script>
+            </div>
 
-            <script>
-                const crumbs = document.querySelector(".page-catalog-bread-crumbs");
-
-                if (cat_1.includes(namePage)){
-                    const point_crumb = document.createElement('a');
-                    point_crumb.className = "bread-crumbs-point";
-                    point_crumb.href = "cat-1.html";
-                    point_crumb.innerHTML = tit_1;   // Жилая недвижимость
-                    crumbs.append(point_crumb);
-                } else if (cat_2.includes(namePage)) {
-                    const point_crumb = document.createElement('a');
-                    point_crumb.className = "bread-crumbs-point";
-                    point_crumb.href = "cat-2.html"; // Коммеческая недвижримость
-                    point_crumb.innerHTML = tit_2;
-                }
-
-                const last_crumb = document.createElement('div');
-                last_crumb.className = "bread-crumbs-point";
-                last_crumb.innerHTML = namePage;
-                crumbs.append(last_crumb);
-            </script>
-
+            <button class="btn-connect-open-filters">
+                <svg class="icon"><use xlink:href="#ico-setting"/></svg>
+            </button>
         </div>
+
 
         <div class="page-catalog-body">
 
             <div class="page-catalog-panel-of-filters">
                 
-                <div class="switcher">
+                <div class="switcher" selected="0">
                     <button status='true'>Продажа</button>
                     <button status='false'>Аренда</button>
                 </div>
@@ -287,7 +314,10 @@
                     <input type="text" placeholder="100+ м²">
                 </div>
 
-                <div class="filter-title">Бюджет <button class="filter-switch-price">₽</button></div>
+                <div class="filter-title">
+                    Бюджет 
+                    <button class="filter-switch-price" currency="rub">₽</button>
+                </div>
                 <div class="filter-range-price range">
                     <input type="text" placeholder="0K">
                     <input type="text" placeholder="999K+">
@@ -308,10 +338,14 @@
                 <div class="filter-switch-station-list"></div>
 
                 <script>
+
+                    // Список checkboxs с выбором количества комнат
+
                     if (cat_1.includes(namePage) | namePage === tit_1) {
 
                         const roomTitle = document.createElement('div');
                         roomTitle.className = "filter-title";
+                        roomTitle.style = "margin-bottom: .5em;"
                         roomTitle.innerHTML = "Количество комнат";
                         filterPanel.append(roomTitle);
 
@@ -319,7 +353,13 @@
                             "1 комната", "2 комната", "3 комната", "4 комната", "5+ комната"
                         ])
                     }
+
                 </script>
+
+                <div class="filter-btns">
+                    <button class="filter-btns-commit btn-submit">Применить</button>
+                    <button class="filter-btns-back btn-submit-light">Закрыть</button>
+                </div>
                 
             </div>
 
@@ -369,8 +409,18 @@
                     }
                 </script>
 
-                
+                <div class="page-catalog-cards-paginator">
+                    <button class="page-catalog-cards-paginator-back">
+                        <svg class="icon"><use xlink:href="#ico-arrow-slim"/></svg>
+                    </button>
+                    <span class="page-catalog-cards-paginator-current">1</span>
+                    <button class="page-catalog-cards-paginator-next">
+                        <svg class="icon"><use xlink:href="#ico-arrow-slim"/></svg>
+                    </button>
+                </div>
             </div>
+
+            
         </div>
 
     </main>
@@ -383,6 +433,7 @@
             <div class="footer-form-title">Подписаться на новые объекты</div>
             <input type="text" placeholder="Имя">
             <input type="text" placeholder="Почта">
+            <button class="btn-submit-light">Отправить</button>
         </div>
         <div class="footer-contacts">
             <div class="footer-contacts-point">+7 (495) 760-31-21</div>

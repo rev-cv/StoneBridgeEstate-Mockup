@@ -277,6 +277,9 @@
         grid-row: 5;
         font-size: 1.2em;
         padding: 1em;
+
+        /* letter-spacing: 1em; */
+        line-height: 1.5em;
     }
 
     .about-page-bosses {

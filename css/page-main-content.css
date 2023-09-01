@@ -258,15 +258,15 @@ video::-webkit-media-controls {
 }
   
 .page-main-content-bottom{
-    font-size: 1em;
-    padding: 0 2em;
+    font-size: calc(10px + 1vw);
+    padding: 2em;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-	height: 24em;
+	min-height: 24em;
 
     overflow: hidden;
     position: relative;
@@ -293,11 +293,9 @@ video::-webkit-media-controls {
     font-size: 2em;
     font-weight: 500;
 
-    padding: 2em;
     text-align: center;
 
     z-index: 1;
-
     /* backdrop-filter: blur(2px); */
     /* background-color: var(--blur-color); */
 
@@ -307,6 +305,7 @@ video::-webkit-media-controls {
 .page-main-content-bottom-form-video {
     z-index: 1;
     display: flex;
+    padding-top: 1em;
 }
 
 .page-main-content-bottom-form-video > input,
@@ -361,6 +360,15 @@ video::-webkit-media-controls {
 
     .page-main-content-top-h, .page-main-content-top-h-text {
         min-width: auto;
+    }
+
+    .page-main-content-bottom-form-video {
+        flex-direction: column;
+    }
+
+    .page-main-content-bottom-form-video > input,
+    .page-main-content-bottom-form-video > button {
+        margin: 1em 0;
     }
 }
 

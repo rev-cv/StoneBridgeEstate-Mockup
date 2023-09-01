@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -12,13 +13,39 @@
     <link rel="stylesheet" type="text/css" href="css/menu2.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
-    <link rel="stylesheet" type="text/css" href="css/page-out-clients-content.css">
+    <link rel="stylesheet" type="text/css" href="css/page-catalog.content.css">
 
     <script src="js/show_menu.js" defer></script>
     <script src="js/show-pop-up.js" defer></script>
-    <!-- <script src="js/fade-out-page.js"></script> -->
+    <script src="js/catalog-filters.js" defer></script>
 
-    <title>Stone Bridge estate</title>
+    <script>
+
+        // Файлы типа «cat…» являются идентичными
+        // Единственное отличие между ними — переменная namePage
+
+        const namePage = "Коммеческая недвижримость"
+
+        // ↓ допустимые значения namePage
+
+        const tit_1 = "Жилая недвижимость"
+        const cat_1 = [
+            "Квартиры", 
+            "Пентхаусы", 
+            "Дома"
+        ]
+        const tit_2 = "Коммеческая недвижримость"
+        const cat_2 = [
+            "Офисы", 
+            "Торговая недвижимость", 
+            "Особняки", 
+            "Street retail"
+        ]
+
+        document.title = `Stone Bridge estate | ${namePage}`
+        
+    </script>
+
 </head>
 <body>
 
@@ -77,6 +104,23 @@
             <g>
                 <path d="M2.00589 4.54166C1.905 3.11236 3.11531 2 4.54522 2H7.60606C8.34006 2 9.00207 2.44226 9.28438 3.1212L10.5643 6.19946C10.8761 6.94932 10.6548 7.81544 10.0218 8.32292L9.22394 8.96254C8.86788 9.24798 8.74683 9.74018 8.95794 10.1448C10.0429 12.2241 11.6464 13.9888 13.5964 15.2667C14.008 15.5364 14.5517 15.4291 14.8588 15.0445L15.6902 14.003C16.1966 13.3687 17.0609 13.147 17.8092 13.4594L20.8811 14.742C21.5587 15.0249 22 15.6883 22 16.4238V19.5C22 20.9329 20.8489 22.0955 19.4226 21.9941C10.3021 21.3452 2.65247 13.7017 2.00589 4.54166Z"/>
                 <!-- fill="#E3E3E3" stroke="#E3E3E3" -->
+            </g>
+        </symbol>
+
+        <symbol id="ico-setting" viewBox="0 0 36 17">
+            <g>
+                <line y1="2.5" x2="36" y2="2.5" stroke="#3E3F40"/>
+                <circle cx="9.5" cy="2.5" r="2.5" fill="#3E3F40"/>
+                <line y1="8.5" x2="36" y2="8.5" stroke="#3E3F40"/>
+                <circle cx="26.5" cy="8.5" r="2.5" fill="#3E3F40"/>
+                <line y1="14.5" x2="36" y2="14.5" stroke="#3E3F40"/>
+                <circle cx="9.5" cy="14.5" r="2.5" fill="#3E3F40"/>
+            </g>
+        </symbol>
+
+        <symbol id="ico-arrow-slim" viewBox="0 0 60 13">
+            <g>
+                <path d="M1 6.5L6.97576 1M1 6.5L6.97576 12M1 6.5H59" stroke="var(--black-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </g>
         </symbol>
     </svg>
@@ -174,80 +218,209 @@
 
     <!-- CONTENT -->
 
-    <main class="page-our-clients-content">
-        
-        <div class="page-our-clients-search-panel">
+    <main class="page-catalog-content">
+
+        <div class="page-catalog-search-panel">
             <div class="search">
                 <input type="text" placeholder="Search" >
                 <svg class="icon"><use xlink:href="#ico-search"/></svg>
             </div>
         </div>
 
-        <div class="page-our-clients-bread-crumbs bread-crumbs">
-            <a class="bread-crumbs-point" href="home.html">Главная</a>
-            <div class="bread-crumbs-point">О компании</div>
+        <div class="page-catalog-bread-crumbs-container">
+            <div class="page-catalog-bread-crumbs bread-crumbs">
+
+                <a class="bread-crumbs-point" href="home.html">Главная</a>
+    
+                <script>
+                    const crumbs = document.querySelector(".page-catalog-bread-crumbs");
+    
+                    if (cat_1.includes(namePage)){
+                        const point_crumb = document.createElement('a');
+                        point_crumb.className = "bread-crumbs-point";
+                        point_crumb.href = "cat-1.html";
+                        point_crumb.innerHTML = tit_1;   // Жилая недвижимость
+                        crumbs.append(point_crumb);
+                    } else if (cat_2.includes(namePage)) {
+                        const point_crumb = document.createElement('a');
+                        point_crumb.className = "bread-crumbs-point";
+                        point_crumb.href = "cat-2.html"; // Коммеческая недвижримость
+                        point_crumb.innerHTML = tit_2;
+                    }
+    
+                    const last_crumb = document.createElement('div');
+                    last_crumb.className = "bread-crumbs-point";
+                    last_crumb.innerHTML = namePage;
+                    crumbs.append(last_crumb);
+                </script>
+            </div>
+
+            <button class="btn-connect-open-filters">
+                <svg class="icon"><use xlink:href="#ico-setting"/></svg>
+            </button>
         </div>
 
-        <div class="our-clients-title">Наши клиенты</div>
 
-        <div class="our-clients-list">
-            <script>
+        <div class="page-catalog-body">
 
-                const ourClientArea = document.querySelector(".our-clients-list");
+            <div class="page-catalog-panel-of-filters">
+                
+                <div class="switcher" selected="0">
+                    <button status='true'>Продажа</button>
+                    <button status='false'>Аренда</button>
+                </div>
 
-                const ourClientList = [
-                    ["Сбербанк",            "6ed4609d398df7dd0c050d77e369b0d7.png"],
-                    ["SREDA Production",    "00a7943acaf7b1e44c55c2c85ba48e45.png"],
-                    ["PwC",                 "4b0ea936c237e9c0fb20bc70f7f2892e.png"],
-                    ["Macdonalds",          "2cea4c5248ce81214e3fc3a16c02f8ed.png"],
-                    ["H&M",                 "b67f844b95a599226b904f0d80922023.png"],
-                    ["Архитектурное бюро",  "4ed04bbeb4ea22e9dc1e7fffd94c5754.png"],
-                    ["Gork Studio",         "8d6342e1f9c0547ca1d2ea6d1cc494ee.png"],
-                    ["Посольство Пакистана","01c37b31b470769fa0b5f707cbab0ec5.png"],
-                    ["Все инструменты.ру",  "17af7f0d5644db8ba1c3d09d1c2196ec.png"],
-                    ["M.B.A. EMPIRE",        "f3b1a4e04b5ca3533b8d3560c82e70af.png"],
-                    ["Renaissance Construction", "80c4826181144733f9b2326a6ae458bd.png"],
-                    ["TEKTA GOUP",          "2aae6a0bde77c6cd2aec1effc8fc52a0.png"],
-                    ["Lukoil",              "318de16414fde01b705b3abae4606edc.png"],
-                    ["BP Connect",          "a7c8c2cebfaf0ce594aea604cf444ed6.png"],
-                    ["Окей",                "209e585118baf1fb22b8f49a82686ff5.png"],
-                    ["Deworkacy",           "41c7e3fc94b1cca9f9c66ffa488faaa0.png"],
-                    ["Itacom",              "c604e01c06c97ea7d710870c7f2de357.png"],
-                    ["Japan Tobacco Inc.",  "30e6850c88cfca26de200ac9815df361.png"],
-                    ["KAZ Minerals",        "57ae1370d1b1f0681f57aca1d59513a0.png"],
-                    ["VTB 24",              "f7daea69a83f3a929622ca0e8e14a92e.png"],
-                    ["Orica",               "ab8b1be92a26211f8112058da1631f5d.png"],
-                ]
+                <script>
 
-                let delay = 1000
+                    const filterPanel = document.querySelector(".page-catalog-panel-of-filters");
 
-                ourClientList.forEach( item => {
+                    function createCheckBox (string) {
+                        const checkbox = document.createElement('label');
+                        checkbox.className = "checkbox";
+                        checkbox.innerHTML = string;
+                        filterPanel.append(checkbox);
 
-                    const div = document.createElement('div');
-                    div.className = "our-clients-list-point";
-                    div.style.animationDelay = delay + "ms";
-                    ourClientArea.append(div);
+                        const input = document.createElement('input');
+                        input.type = "checkbox";
+                        input.checked = namePage === string
+                        checkbox.append(input);
 
-                    const div_img = document.createElement('div');
-                    div.append(div_img);
+                        const checkmark = document.createElement('span');
+                        checkmark.className = "checkmark";
+                        checkbox.append(checkmark);
 
-                    const img = document.createElement('img');
-                    img.src = "img/logo/" + item[1]
-                    div_img.append(img);
+                        // const text = document.createElement('span');
+                        // text.innerHTML = string;
+                        // checkbox.append(text);
 
-                    const span = document.createElement('span');
-                    span.innerHTML = item[0]
-                    div.append(span);
+                        // <label class="checkbox">
+                        //     <input type="checkbox">
+                        //     <span class="checkmark"></span>
+                        //     <span>Текст флажка</span>
+                        // </label>
+                    }
 
-                    delay += 200;
-                })
+                    function addCheckBoxs (checks) {
+                        checks.forEach( item => createCheckBox(item))
+                    }
+                    
+                    addCheckBoxs(cat_1.includes(namePage) | namePage === tit_1 ?  cat_1 : cat_2);
 
-                // <div class="our-clients-list-point">
-                //     <div><img src="" /></div>
-                //     <span>Сбербанк</span>
-                // </div>
+                </script>
 
-            </script>
+                <div class="filter-title">Площадь</div>
+                <div class="filter-range-meters range">
+                    <input type="text" placeholder="0 м²">
+                    <input type="text" placeholder="100+ м²">
+                </div>
+
+                <div class="filter-title">
+                    Бюджет 
+                    <button class="filter-switch-price" currency="rub">₽</button>
+                </div>
+                <div class="filter-range-price range">
+                    <input type="text" placeholder="0K">
+                    <input type="text" placeholder="999K+">
+                </div>
+
+                <button 
+                    class="filter-switch-districts btn-title"
+                    area-element="filter-switch-district-list"
+                    >Район
+                </button>
+                <div class="filter-switch-district-list"></div>
+
+                <button 
+                    class="filter-switch-stations btn-title"
+                    area-element="filter-switch-station-list"
+                    >Станция метро
+                </button>
+                <div class="filter-switch-station-list"></div>
+
+                <script>
+
+                    // Список checkboxs с выбором количества комнат
+
+                    if (cat_1.includes(namePage) | namePage === tit_1) {
+
+                        const roomTitle = document.createElement('div');
+                        roomTitle.className = "filter-title";
+                        roomTitle.style = "margin-bottom: .5em;"
+                        roomTitle.innerHTML = "Количество комнат";
+                        filterPanel.append(roomTitle);
+
+                        addCheckBoxs([
+                            "1 комната", "2 комната", "3 комната", "4 комната", "5+ комната"
+                        ])
+                    }
+
+                </script>
+
+                <div class="filter-btns">
+                    <button class="filter-btns-commit btn-submit">Применить</button>
+                    <button class="filter-btns-back btn-submit-light">Закрыть</button>
+                </div>
+                
+            </div>
+
+            <div class="page-catalog-cards cards">
+                <script>
+
+                    const catalogCards = document.querySelector(".cards");
+
+                    const values = [
+                        "Продажа", "Квартира", "3 комнаты", 
+                        "Можайское шоссе д. 6к1", "55м²", 
+                        "₽ 35 000 000"
+                    ]
+
+                    for (let i = 0; i < 15; i++) {
+
+                        const card = document.createElement('a');
+                        card.href = "";
+                        catalogCards.append(card);
+                        
+                        const div_img = document.createElement('div');
+                        card.append(div_img);
+
+                        const img = document.createElement('img');
+                        img.src = "img/d140963ae4d58facb8465b6374f1f016.jpeg";
+                        div_img.append(img);
+
+                        const div_values = document.createElement('div');
+                        card.append(div_values);
+
+                        values.forEach( item => {
+                            const val = document.createElement('span');
+                            val.innerHTML = item;
+                            div_values.append(val);
+                        })
+
+                        // <a href="">
+                        //     <div><img src="" alt=""></div>
+                        //     <div>
+                        //         <span>Продажа</span>
+                        //         <span>1 комн.</span>
+                        //         <span>Можайское шоссе д. 6к1</span>
+                        //         <span>55 м²</span>
+                        //         <span>₽ 35 000 000</span>
+                        //     </div>
+                        // </a>
+                    }
+                </script>
+
+                <div class="page-catalog-cards-paginator">
+                    <button class="page-catalog-cards-paginator-back">
+                        <svg class="icon"><use xlink:href="#ico-arrow-slim"/></svg>
+                    </button>
+                    <span class="page-catalog-cards-paginator-current">1</span>
+                    <button class="page-catalog-cards-paginator-next">
+                        <svg class="icon"><use xlink:href="#ico-arrow-slim"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            
         </div>
 
     </main>
@@ -297,7 +470,6 @@
             </div>
         </div>
     </div>
-
     
 </body>
 </html>

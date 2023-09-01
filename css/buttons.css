@@ -163,11 +163,12 @@ input {
 /* SWITCHER */
 
 .switcher{
-    padding: .2em;
-    margin: .5em;
+    /* padding: .7em; */
+    margin: .7em;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+    transition: all .5s linear;
 }
 
 .switcher > button {
@@ -199,6 +200,10 @@ input {
     background: var(--btn-painting);
     color: var(--white-color);
 }
+
+/* .switcher:hover {
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.15), -10px -10px 20px 0px rgba(0, 0, 0, 0.15);
+} */
 
 
 /* CHECKBOX */

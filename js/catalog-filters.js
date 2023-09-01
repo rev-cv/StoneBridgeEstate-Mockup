@@ -8,9 +8,10 @@ let isGenStantions = false;
 
 let isOpenDistcrics = false
 let isOpenStantions = false
+let isOpenFilters = false
 
 
-function toogleFilters (event) {
+function toggleFilters (event) {
     const className = event.target.getAttribute("area-element")
     const areaList = document.querySelector(`.${className}`);
 
@@ -36,6 +37,7 @@ function toogleFilters (event) {
         }
         areaList.style.transform = isOpenStantions ? "scaleY(0)" : "scaleY(1)"
         areaList.style.height = isOpenStantions ? "0em" : "15em"
+        areaList.style.minHeight = isOpenStantions ? "0em" : "15em"
         isOpenStantions = !isOpenStantions
     } else if (className === "filter-switch-district-list") {
         if (isGenDistcrics === false){
@@ -44,10 +46,94 @@ function toogleFilters (event) {
         }
         areaList.style.transform = isOpenDistcrics ? "scaleY(0)" : "scaleY(1)"
         areaList.style.height = isOpenDistcrics ? "0em" : "15em"
+        areaList.style.minHeight = isOpenDistcrics ? "0em" : "15em"
         isOpenDistcrics = !isOpenDistcrics
     }
 }
 
 
-document.querySelector(".filter-switch-districts").onclick = toogleFilters;
-document.querySelector(".filter-switch-stations").onclick = toogleFilters;
+function toggleSwitcher (event) {
+    const parent = event.target.parentNode
+    const [btn0, btn1] = parent.querySelectorAll('button')
+    const selected = parent.getAttribute("selected")
+
+    if (selected === "0") {
+        btn0.setAttribute("status", "false")
+        btn1.setAttribute("status", "true")
+        parent.setAttribute("selected", "1")
+    } else if (selected === "1") {
+        btn0.setAttribute("status", "true")
+        btn1.setAttribute("status", "false")
+        parent.setAttribute("selected", "0")
+    }
+}
+
+
+function toggleRub (event) {
+    const currency = event.target.getAttribute("currency")
+    event.target.innerHTML = currency === "rub" ? "$" : "₽"
+    event.target.setAttribute("currency", currency === "rub" ? "dol" : "rub")
+}
+
+
+function toggleOpenFilters (event) {
+    const formWithFilters = document.querySelector(".page-catalog-panel-of-filters");
+    
+    if (isOpenFilters) {
+        formWithFilters.style.transition = "all 1s ease";
+        formWithFilters.style.transform = ""
+
+        setTimeout(() => {
+            closeCurtain()
+        }, 300)
+
+        setTimeout(() => {
+            formWithFilters.style.transition = "";
+        }, 2000)
+        
+    } else {
+
+        openCurtain();
+        formWithFilters.style.transition = "all 1s ease";
+
+        setTimeout(() => {
+            formWithFilters.style.transform = "translateX(0)";
+        }, 500)
+
+        setTimeout(() => {
+            formWithFilters.style.transition = "";
+        }, 2000)
+    }
+
+    isOpenFilters = !isOpenFilters
+
+}
+
+
+function setDelayForCards () {
+    let delay = 0;
+
+    document.querySelectorAll(".page-catalog-cards > a").forEach( elem => {
+        elem.style.animationDelay = delay + "ms";
+        delay += 300;
+    })
+}
+
+setDelayForCards()
+
+document.querySelector(".filter-switch-districts").onclick = toggleFilters;
+document.querySelector(".filter-switch-stations").onclick = toggleFilters;
+
+document.querySelectorAll(".page-catalog-panel-of-filters > .switcher > button").forEach(btn => {
+    btn.onclick = toggleSwitcher;
+})
+
+document.querySelector(".filter-switch-price").onclick = toggleRub;
+
+document.querySelector(".btn-connect-open-filters").onclick = toggleOpenFilters;
+document.querySelector(
+    ".page-catalog-panel-of-filters > .filter-btns > .filter-btns-back"
+).onclick = toggleOpenFilters;
+
+
+

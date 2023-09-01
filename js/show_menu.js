@@ -19,7 +19,7 @@ function openCurtain(){
 
     let curtain_main = document.createElement('div');
     curtain_main.className = "curtain-main";
-    curtain_main.onclick = toogleMenu;
+    curtain_main.onclick = toggleMenu;
     document.body.append(curtain_main);
 
     const cwa = document.body.clientWidth;
@@ -103,7 +103,7 @@ function animHidePoints (points) {
     })
 }
 
-function toogleMenu() {
+function toggleMenu() {
     // раскрывает и скрывает главное меню сайта
     let menu = document.querySelector(".expanded-header");
 
@@ -154,9 +154,7 @@ function toogleMenu() {
                 
             }, 1500)
         }
-        // let stretcher = document.querySelector(".expanded-header-stretcher");
-        // stretcher.style.maxHeight = "0px"
-        
+
     } else {
         // ОТКРЫТИЕ ПАНЕЛИ САЙТА
 
@@ -186,6 +184,7 @@ function openSubmissionForm (isOnWindow) {
     let form = document.querySelector(".expanded-header-form");
     let back = document.querySelector(".expanded-header-form-back");
     let stretcher = document.querySelector(".expanded-header-stretcher");
+    stretcher.style.minHeight = getComputedStyle(stretcher).height;
     stretcher.style.maxHeight = getComputedStyle(stretcher).height;
 
     function returnToMenu() {
@@ -205,6 +204,7 @@ function openSubmissionForm (isOnWindow) {
             nav.style.opacity = 1;
             submit.style.transform = "translateX(0)";
             submit.style.opacity = 1;
+            stretcher.style.minHeight = ""
             stretcher.style.maxHeight = ""
             isOpenSubmissionForm = false
         }, 650)
@@ -244,15 +244,15 @@ function openSubmissionForm (isOnWindow) {
             form.style.opacity = 1;
         }, 1500)
 
-        toogleMenu()
+        toggleMenu()
 
-        back.onclick = toogleMenu
+        back.onclick = toggleMenu
     }
 }
 
 
 document.querySelectorAll(".btn-connect-show-menu").forEach(btn => {
-    btn.onclick = toogleMenu;
+    btn.onclick = toggleMenu;
 })
 
 document.querySelector(".expanded-header-submit").onclick = openSubmissionForm;

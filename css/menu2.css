@@ -20,6 +20,9 @@
     transition-property: transform, opacity;
 	transition-duration: 1000ms, 1500ms;
     transition-timing-function: cubic-bezier(1, 0, .38, 1);
+
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .expanded-header-menu-btn-menu {

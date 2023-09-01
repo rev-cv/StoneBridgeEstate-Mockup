@@ -1,7 +1,6 @@
 .page-catalog-content {
     margin-left: calc(4.5em + 2em);
     margin-right: 2em;
-
 }
 
 .page-catalog-search-panel {
@@ -10,24 +9,60 @@
     align-items: center;
     padding: 1em;
 
-    animation-name: anime-page-our-clients-elems;
-    animation-duration: 1s;
-    animation-fill-mode: backwards;
+    animation: anime-page-catalog-elems .5s ease .5s 1 normal backwards;
 
     flex-grow: 1;
 }
 
-.page-catalog-bread-crumbs {
-    margin: 2em 0 0 2em;
+.page-catalog-bread-crumbs-container {
+    display: flex;
+    justify-content: space-between;
 
-    animation-name: anime-page-our-clients-elems;
-    animation-duration: 1s;
-    animation-fill-mode: backwards;
+    display: flex;
+    padding-top: 3em;
+}
+
+.page-catalog-bread-crumbs {
+    animation: anime-page-catalog-elems .5s ease .5s 1 normal backwards;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.page-catalog-bread-crumbs::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0) 86%, var(--white-color) 100%);
+}
+
+
+
+.btn-connect-open-filters {
+    background-color: transparent;
+    display: none;
+    transition: opacity .8s ease;
+}
+
+.btn-connect-open-filters:hover {
+    opacity: .5;
+}
+
+.btn-connect-open-filters > svg {
+    width: 3em;
+    height: 3em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1em;
 }
 
 .page-catalog-body {
     padding-top: 2em;
-
     display: flex;
 }
 
@@ -41,6 +76,7 @@
     display: flex;
     flex-direction: column;
     margin-right: 1em;
+    animation: anime-page-catalog-elems .5s ease .5s 1 normal backwards;
 }
 
 .filter-title, .btn-title {
@@ -77,6 +113,10 @@
     transition: all 1s ease;
 }
 
+.filter-switch-station-list{
+    margin-bottom: .8em;
+}
+
 button.filter-switch-price {
     margin-right: .5em;
     width: 1.5em;
@@ -85,14 +125,21 @@ button.filter-switch-price {
     background-color: var(--indigo-color);
     color: var(--white-color);
     transition: all .5s ease;
+    font-size: .8em;
 }
 
 button.filter-switch-price:hover {
     box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.15), -10px -10px 20px 0px rgba(0, 0, 0, 0.15);
 }
 
+.page-catalog-panel-of-filters > .filter-btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+    font-size: 1.2em;
 
-
+    display: none;
+}
 
 
 /* CARDS */
@@ -106,7 +153,6 @@ button.filter-switch-price:hover {
     flex-wrap: wrap;
 }
 
-
 .cards > a {
     width: 12em;
     height: 12em;
@@ -118,6 +164,7 @@ button.filter-switch-price:hover {
     border-radius: 4px;
 
     transition: all .3s ease;
+    animation: anime-page-catalog-elems .5s ease .5s 1 normal backwards;
 }
 
 .cards > a > div:first-child {
@@ -142,7 +189,6 @@ button.filter-switch-price:hover {
     padding: .2em;
     align-items: center;
     height: 30%;
-
 }
 
 .cards > a > div:last-child > span {
@@ -165,4 +211,111 @@ button.filter-switch-price:hover {
 
 .cards > a:hover {
     transform: scale(1.01);
+}
+
+
+.page-catalog-cards-paginator {
+    margin-top: 2em;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: 2em;
+}
+
+.page-catalog-cards-paginator > * {
+    margin: 0 .8em;
+    color: var(--black-color);
+}
+
+.page-catalog-cards-paginator > button {
+    width: 3em;
+    height: 3em;
+    background-color: transparent;
+    transition: opacity .8s ease;
+}
+
+.page-catalog-cards-paginator > button:hover {
+    opacity: .5;
+}
+
+.page-catalog-cards-paginator > button > svg {
+    width: 100%;
+    height: 100%;
+}
+
+.page-catalog-cards-paginator > button:last-child > svg {
+    transform: rotate(180deg);
+}
+
+
+
+
+@media (max-width: 930px) {
+
+    .page-catalog-content {
+        margin: .2em;
+    }
+
+    .page-catalog-panel-of-filters {
+        /* display: none; */
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        position: fixed;
+        transform: translateX(110vw);
+        
+
+        min-width: 100vw;
+        max-width: 100vw;
+
+        padding: 2em;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        background-color: var(--white-color);
+
+        z-index: 21;
+
+        animation-name: none;
+    }
+
+    .page-catalog-bread-crumbs {
+        font-size: 1.5em;
+        padding-left: 1em;
+    }
+
+    .cards > a {
+        border-right-color: transparent;
+        border-left-color: transparent;
+        margin: .2em;
+        border-radius: 0;
+    }
+
+    .page-catalog-panel-of-filters > .filter-btns {
+        display: flex;
+    }
+
+    .btn-connect-open-filters {
+        display: block;
+    }
+}
+
+
+@keyframes anime-page-catalog-elems {
+	0% {  
+		transform: translateY(3em);
+        opacity: 0;
+	} 
+    70%{
+        opacity: .4;
+    }
+	100% {
+		transform: translateY(0%);
+        opacity: 1;
+	} 
 }
