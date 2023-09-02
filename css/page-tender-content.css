@@ -9,32 +9,37 @@
 }
 
 .page-tender-widget-images {
-    background-color: brown;
     grid-column: 2 / 5;
     grid-row: span 2;
+    animation: anime-page-catalog-elems .5s ease .1s 1 normal backwards;
 }
 
 .page-tender-widghet-similar-title {
     grid-column: 5 / 6;
     grid-row: 1 / 2;
+    animation: anime-page-catalog-elems .5s ease .3s 1 normal backwards;
 }
 
 .page-tender-widghet-similar {
     grid-column: 5;
     grid-row: 2 / -1;
+    animation: anime-page-catalog-elems .5s ease .6s 1 normal backwards;
 }
 
 .page-tender-widghet-title {
     grid-column: 2 / 4;
+    animation: anime-page-catalog-elems .5s ease .9s 1 normal backwards;
 }
 
 .page-tender-widghet-price {
     grid-column: 4;
+    animation: anime-page-catalog-elems .5s ease 1.2s 1 normal backwards;
 }
 
 .page-tender-widghet-feature,
 .page-tender-requests {
     grid-column: 2 / 5;
+    animation: anime-page-catalog-elems .5s ease 1.5s 1 normal backwards;
 }
 
 
@@ -87,14 +92,17 @@
 
 .page-tender-widghet-feature > .feature > div {
     width: 14em;
+    /* max-width: calc(14em * 2); */
     margin: .5em;
     flex-grow: 1;
 
     display: flex;
     align-items: center;
-    /* font-size: clamp(14px, 1vw, 18px); */
-
 }
+
+/* .page-tender-widghet-feature > .feature > .feature-street {
+    width: calc(14em * 2);
+} */
 
 .page-tender-widghet-feature > .feature > div > span{
     font-size: .7em;
@@ -152,8 +160,7 @@
 @media (max-width: 930px) {
     .page-tender-body {
         grid-template-columns: 1fr;
-        grid-template-rows: 2em 20em 4.5em auto auto 4.5em;
-        grid-template-rows: 20em;
+        grid-template-rows: 25em;
         padding: .5em;
     }
 
@@ -167,4 +174,18 @@
         grid-column: 1 / -1;
         grid-row: auto;
     }
+}
+
+@keyframes anime-page-tender-elems {
+	0% {  
+		transform: translateY(3em);
+        opacity: 0;
+	} 
+    70%{
+        opacity: .4;
+    }
+	100% {
+		transform: translateY(0%);
+        opacity: 1;
+	} 
 }

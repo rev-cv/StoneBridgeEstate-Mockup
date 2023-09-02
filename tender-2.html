@@ -14,18 +14,19 @@
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/widgets.css">
     <link rel="stylesheet" type="text/css" href="css/page-catalog.content.css">
+    <link rel="stylesheet" type="text/css" href="css/page-tender-content.css">
 
     <script src="js/sprite-svg.js" defer></script>
     <script src="js/show_menu.js" defer></script>
     <script src="js/show-pop-up.js" defer></script>
-    <script src="js/catalog-filters.js" defer></script>
+    <script src="js/image-slider.js" defer></script>
 
     <script>
 
         // Файлы типа «cat…» являются идентичными
         // Единственное отличие между ними — переменная namePage
 
-        const namePage = "Жилая недвижимость"
+        const namePage = "Коммеческая недвижримость"
 
         // ↓ допустимые значения namePage
 
@@ -49,6 +50,7 @@
 
 </head>
 <body>
+
 
     <!-- HEADER -->
       
@@ -78,6 +80,7 @@
         
     </header>
 
+
     <!-- folded header -->
     
     <div class="expanded-header">
@@ -88,6 +91,11 @@
             <button class="expanded-header-menu-btn-menu btn-connect-show-menu">
                 <svg class="icon"><use xlink:href="#ico-menu"/></svg>
             </button>
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="Search" >
+            <svg class="icon"><use xlink:href="#ico-search"/></svg>
         </div>
 
         <div class="expanded-header-caption-big">Stone Bridge</div>
@@ -179,173 +187,126 @@
                     crumbs.append(last_crumb);
                 </script>
             </div>
-
-            <button class="btn-connect-open-filters">
-                <svg class="icon"><use xlink:href="#ico-setting"/></svg>
-            </button>
         </div>
 
 
-        <div class="page-catalog-body">
+        <div class="page-tender-body">
 
-            <div class="page-catalog-panel-of-filters">
-                
-                <div class="switcher" selected="0">
-                    <button status='true'>Продажа</button>
-                    <button status='false'>Аренда</button>
-                </div>
-
-                <script>
-
-                    const filterPanel = document.querySelector(".page-catalog-panel-of-filters");
-
-                    function createCheckBox (string) {
-                        const checkbox = document.createElement('label');
-                        checkbox.className = "checkbox";
-                        checkbox.innerHTML = string;
-                        filterPanel.append(checkbox);
-
-                        const input = document.createElement('input');
-                        input.type = "checkbox";
-                        input.checked = namePage === string
-                        checkbox.append(input);
-
-                        const checkmark = document.createElement('span');
-                        checkmark.className = "checkmark";
-                        checkbox.append(checkmark);
-
-                        // const text = document.createElement('span');
-                        // text.innerHTML = string;
-                        // checkbox.append(text);
-
-                        // <label class="checkbox">
-                        //     <input type="checkbox">
-                        //     <span class="checkmark"></span>
-                        //     <span>Текст флажка</span>
-                        // </label>
-                    }
-
-                    function addCheckBoxs (checks) {
-                        checks.forEach( item => createCheckBox(item))
-                    }
-                    
-                    addCheckBoxs(cat_1.includes(namePage) | namePage === tit_1 ?  cat_1 : cat_2);
-
-                </script>
-
-                <div class="filter-title">Площадь</div>
-                <div class="filter-range-meters range">
-                    <input type="text" placeholder="0 м²">
-                    <input type="text" placeholder="100+ м²">
-                </div>
-
-                <div class="filter-title">
-                    Бюджет 
-                    <button class="filter-switch-price" currency="rub">₽</button>
-                </div>
-                <div class="filter-range-price range">
-                    <input type="text" placeholder="0K">
-                    <input type="text" placeholder="999K+">
-                </div>
-
-                <button 
-                    class="filter-switch-districts btn-title"
-                    area-element="filter-switch-district-list"
-                    >Район
-                </button>
-                <div class="filter-switch-district-list"></div>
-
-                <button 
-                    class="filter-switch-stations btn-title"
-                    area-element="filter-switch-station-list"
-                    >Станция метро
-                </button>
-                <div class="filter-switch-station-list"></div>
-
-                <script>
-
-                    // Список checkboxs с выбором количества комнат
-
-                    if (cat_1.includes(namePage) | namePage === tit_1) {
-
-                        const roomTitle = document.createElement('div');
-                        roomTitle.className = "filter-title";
-                        roomTitle.style = "margin-bottom: .5em;"
-                        roomTitle.innerHTML = "Количество комнат";
-                        filterPanel.append(roomTitle);
-
-                        addCheckBoxs([
-                            "1 комната", "2 комната", "3 комната", "4 комната", "5+ комната"
-                        ])
-                    }
-
-                </script>
-
-                <div class="filter-btns">
-                    <button class="filter-btns-commit btn-submit">Применить</button>
-                    <button class="filter-btns-back btn-submit-light">Закрыть</button>
-                </div>
-                
-            </div>
-
-            <div class="page-catalog-cards cards">
-                <script>
-
-                    const catalogCards = document.querySelector(".cards");
-
-                    const values = [
-                        "Продажа", "Квартира", "3 комнаты", 
-                        "Можайское шоссе д. 6к1", "55м²", 
-                        "₽ 35 000 000"
-                    ]
-
-                    for (let i = 0; i < 15; i++) {
-
-                        const card = document.createElement('a');
-                        card.href = "tender-1.html";
-                        catalogCards.append(card);
-                        
-                        const div_img = document.createElement('div');
-                        card.append(div_img);
-
-                        const img = document.createElement('img');
-                        img.src = "img/d140963ae4d58facb8465b6374f1f016.jpeg";
-                        div_img.append(img);
-
-                        const div_values = document.createElement('div');
-                        card.append(div_values);
-
-                        values.forEach( item => {
-                            const val = document.createElement('span');
-                            val.innerHTML = item;
-                            div_values.append(val);
-                        })
-
-                        // <a href="">
-                        //     <div><img src="" alt=""></div>
-                        //     <div>
-                        //         <span>Продажа</span>
-                        //         <span>1 комн.</span>
-                        //         <span>Можайское шоссе д. 6к1</span>
-                        //         <span>55 м²</span>
-                        //         <span>₽ 35 000 000</span>
-                        //     </div>
-                        // </a>
-                    }
-                </script>
-
-                <div class="page-catalog-cards-paginator">
-                    <button class="page-catalog-cards-paginator-back">
-                        <svg class="icon"><use xlink:href="#ico-arrow-slim"/></svg>
-                    </button>
-                    <span class="page-catalog-cards-paginator-current">1</span>
-                    <button class="page-catalog-cards-paginator-next">
-                        <svg class="icon"><use xlink:href="#ico-arrow-slim"/></svg>
-                    </button>
+            <div class="page-tender-widget-images image-slider">
+                <div class="image-slider-list">
+                    <div><img src="img/214701040fc6b507d56fbf8e959bc6e2.png" alt=""></div>
+                    <div><img src="img/b5cbb0a9b91507ea31cbb319b0cdc7d1.png" alt=""></div>
+                    <div><img src="img/f6ac1bc0292259ef52a5ea3343349502.png" alt=""></div>
+                    <div><img src="img/f16b43ec9a8c41a0cc715b48d8852e52.png" alt=""></div>
+                    <div><img src="img/9dd0e7706d5d359fad0fc2f0b0ab1d19.png" alt=""></div>
                 </div>
             </div>
-
             
+            <div class="page-tender-widghet-title">
+                Продажа салона BFANCY ул. Большая Якиманка д. 25 85 м²
+            </div>
+
+            <div class="page-tender-widghet-price">
+                <span class="price">₽55 000 000</span>
+                <button class="btn-submit-light">Запросить цену</button>
+            </div>
+                
+            <div class="page-tender-widghet-feature">
+
+                <div class="feature">
+                    <div class="feature-city">
+                        <svg class="icon"><use xlink:href="#ico-city"/></svg>
+                        <span>город</span>
+                        Москва
+                    </div>
+                    <div class="feature-district">
+                        <svg class="icon"><use xlink:href="#ico-district"/></svg>
+                        <span>район</span>
+                        Якиманка район
+                    </div>
+                    <div class="feature-street">
+                        <svg class="icon"><use xlink:href="#ico-street"/></svg>
+                        <span>адрес</span>
+                        Слесарный, дом 3
+                    </div>
+                    <div class="feature-map">
+                        <svg class="icon"><use xlink:href="#ico-map"/></svg>
+                        <a href="">Показать на карте</a>
+                    </div>
+                    <div class="feature-station">
+                        <svg class="icon"><use xlink:href="#ico-metro"/></svg>
+                        <span>метро</span>
+                        Полянка
+                    </div>
+                    <div class="feature-rooms">
+                        <svg class="icon"><use xlink:href="#ico-rooms"/></svg>
+                        <span>количество комнат</span>
+                        0
+                    </div>
+                    <div class="feature-level">
+                        <svg class="icon"><use xlink:href="#ico-level"/></svg>
+                        <span>этаж</span>
+                        1 / 1
+                    </div>
+                    <div class="feature-total-area">
+                        <svg class="icon"><use xlink:href="#ico-total-area"/></svg>
+                        <span>общая площадь</span>
+                        216 м²
+                    </div>
+                    <div class="feature-parking">
+                        <svg class="icon"><use xlink:href="#ico-parking"/></svg>
+                        <span>парковка</span>
+                        нет
+                    </div>
+                </div>
+                
+                <div class="environment" title="окружение">Минеральные воды, Французский Визовый центр, Творческое Объединение по Эстетическому Воспитанию молодежи</div>
+
+                <div class="info"> <div>Описание:</div> <div>Артикул объекта: 7777</div> </div>
+
+                <div class="description">Салон красоты премиум класса BFANCY (г. Москва, ул. Большая Якиманка, д. 25). Продается помещение со стильным ремонтов, выполнен из дорогих и качественных материалов в светлом и современном стиле с использование латунных элементов, камня и деревамебель изготовлена под индивидуальный заказ с использованием множества латунных элементов (цельных, не полых) эксклюзивные латунные витрина и вешалка для одежды гостей; - наличие холодильника Либхер, сейфа, кассового аппарата, кофеварки, телевизора, пылесосов Дайсон, сушилки для рук Дайсон, аппарата для стерилизации инструментов, весов, ламп для гель-лака и ламп для маникюра с возможностью зарядки телефона, фенов, включая фен Дайсон, современные дорогие плойки для стайлинга Клауд Найн, новый моноблок Mac. В наличии вся необходимая профессиональная продукция класса люкс для маникюра и педикюра, волос, макияжа + дорогие итальянские интерьерные ароматы, маски и т.д.</div>
+            </div>
+            
+            <div class="page-tender-requests">
+                <button class="page-tender-request-view btn-submit">Заказать просмотр</button>
+                <button class="page-tender-request-send btn-submit-light">Отправить по почте</button>
+                <button class="page-tender-request-offer btn-submit-light">Предложить свою цену</button>
+            </div>
+
+            <div class="page-tender-widghet-similar-title">Новые объекты</div>
+
+            <div class="page-tender-widghet-similar cards">
+                <a href="">
+                    <div><img src="img/d140963ae4d58facb8465b6374f1f016.jpeg" alt=""></div>
+                    <div>
+                        <span>Продажа</span>
+                        <span>1 комн.</span>
+                        <span>Можайское шоссе д. 6к1</span>
+                        <span>55 м²</span>
+                        <span>₽ 35 000 000</span>
+                    </div>
+                </a>
+                <a href="">
+                    <div><img src="img/d140963ae4d58facb8465b6374f1f016.jpeg" alt=""></div>
+                    <div>
+                        <span>Продажа</span>
+                        <span>1 комн.</span>
+                        <span>Можайское шоссе д. 6к1</span>
+                        <span>55 м²</span>
+                        <span>₽ 35 000 000</span>
+                    </div>
+                </a>
+                <a href="">
+                    <div><img src="img/d140963ae4d58facb8465b6374f1f016.jpeg" alt=""></div>
+                    <div>
+                        <span>Продажа</span>
+                        <span>1 комн.</span>
+                        <span>Можайское шоссе д. 6к1</span>
+                        <span>55 м²</span>
+                        <span>₽ 35 000 000</span>
+                    </div>
+                </a>
+            </div>
         </div>
 
     </main>

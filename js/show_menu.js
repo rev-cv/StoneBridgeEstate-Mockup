@@ -108,6 +108,7 @@ function toggleMenu() {
     let menu = document.querySelector(".expanded-header");
 
     let menu_points = [
+        document.querySelector(".expanded-header > .search"),
         document.querySelector(".expanded-header-caption-big"),
         document.querySelector(".expanded-header-caption-little"),
         ...document.querySelector(".expanded-header-nav").children,

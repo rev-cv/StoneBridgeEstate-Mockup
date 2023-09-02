@@ -12,13 +12,14 @@
     <link rel="stylesheet" type="text/css" href="css/menu.css">
     <link rel="stylesheet" type="text/css" href="css/menu2.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="css/widgets.css">
     <link rel="stylesheet" type="text/css" href="css/page-catalog.content.css">
     <link rel="stylesheet" type="text/css" href="css/page-tender-content.css">
 
     <script src="js/sprite-svg.js" defer></script>
     <script src="js/show_menu.js" defer></script>
     <script src="js/show-pop-up.js" defer></script>
+    <script src="js/image-slider.js" defer></script>
 
     <script>
 
@@ -90,6 +91,11 @@
             <button class="expanded-header-menu-btn-menu btn-connect-show-menu">
                 <svg class="icon"><use xlink:href="#ico-menu"/></svg>
             </button>
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="Search" >
+            <svg class="icon"><use xlink:href="#ico-search"/></svg>
         </div>
 
         <div class="expanded-header-caption-big">Stone Bridge</div>
@@ -186,7 +192,15 @@
 
         <div class="page-tender-body">
 
-            <div class="page-tender-widget-images">123</div>
+            <div class="page-tender-widget-images image-slider">
+                <div class="image-slider-list">
+                    <div><img src="img/214701040fc6b507d56fbf8e959bc6e2.png" alt=""></div>
+                    <div><img src="img/b5cbb0a9b91507ea31cbb319b0cdc7d1.png" alt=""></div>
+                    <div><img src="img/f6ac1bc0292259ef52a5ea3343349502.png" alt=""></div>
+                    <div><img src="img/f16b43ec9a8c41a0cc715b48d8852e52.png" alt=""></div>
+                    <div><img src="img/9dd0e7706d5d359fad0fc2f0b0ab1d19.png" alt=""></div>
+                </div>
+            </div>
             
             <div class="page-tender-widghet-title">
                 Продажа салона BFANCY ул. Большая Якиманка д. 25 85 м²
@@ -213,7 +227,7 @@
                     <div class="feature-street">
                         <svg class="icon"><use xlink:href="#ico-street"/></svg>
                         <span>адрес</span>
-                        Слесарный Переслесарный, дом 3
+                        Слесарный, дом 3
                     </div>
                     <div class="feature-map">
                         <svg class="icon"><use xlink:href="#ico-map"/></svg>

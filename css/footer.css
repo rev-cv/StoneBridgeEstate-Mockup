@@ -5,6 +5,7 @@ footer {
     margin-top: 5em;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* overflow: hidden; */
 }
 
 .footer-form, .footer-contacts {
@@ -83,6 +84,7 @@ footer {
     }
 
     .footer-form, .footer-contacts{
-        padding: 1em 3em;
+        padding: 2em 0;
+        font-size: calc(1vw + 10px);
     }
 }

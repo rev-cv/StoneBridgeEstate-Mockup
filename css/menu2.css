@@ -52,6 +52,16 @@
     background-color: transparent;
 }
 
+.expanded-header > .search {
+    margin: 1em 10% 2em 10%;
+    display: none;
+
+    /* ↓ блок для анимации */
+    opacity: 0;
+    transform: translateY(1em);
+    transition: all 600ms linear;
+}
+
 .expanded-header-line {
     width: 80%;
     min-height: 2px;
@@ -212,6 +222,10 @@
     .expanded-header-line {
         width: 80%;
         align-self: center;
+    }
+
+    .expanded-header > .search {
+        display: flex;
     }
     
 }

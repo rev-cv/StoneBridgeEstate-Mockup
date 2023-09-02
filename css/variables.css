@@ -1,6 +1,7 @@
 :root {
     --blur-color: rgba(30, 30, 30, .4);
     --white-color: #E3E3E3;
+    --white-color-50: rgba(227, 227, 227, .5);
     --black-color: #3E3F40;
     --black-color-50: rgba(62, 63, 64, .5);
     --indigo-color: #09325a;

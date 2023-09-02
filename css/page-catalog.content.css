@@ -27,6 +27,7 @@
     position: relative;
     white-space: nowrap;
     overflow: hidden;
+    flex-grow: 1;
 }
 
 .page-catalog-bread-crumbs::before {
@@ -35,11 +36,14 @@
     top: 0;
     bottom: 0;
     right: 0;
-    left: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,0) 86%, var(--white-color) 100%);
+    /* left: 0; */
+    width: 2em;
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, var(--white-color) 100%);
 }
 
-
+.page-catalog-bread-crumbs > bread-crumbs-point:last-child {
+    flex-grow: 1;
+}
 
 .btn-connect-open-filters {
     background-color: transparent;
