@@ -4,5 +4,7 @@
     --black-color: #3E3F40;
     --black-color-50: rgba(62, 63, 64, .5);
     --indigo-color: #09325a;
+    --indigo-color-20: rgba(9, 50, 90, 0.2);
     --btn-painting: linear-gradient(90deg, #082E54 0%, #0A3560 100%);
+    --blue-color: #16589B;
 }

@@ -51,7 +51,7 @@
     font-size: 1.2em;
     margin-bottom: 1em;
     z-index: 1;
-    color: #E3E3E3;
+    color: var(--white-color);
     letter-spacing: -0.6px;
     text-align: center;
     font-weight: 500;
@@ -68,7 +68,7 @@
     font-size: 1em;
     margin-bottom: 1em;
     z-index: 1;
-    color: #E3E3E3;
+    color: var(--white-color);
     letter-spacing: -0.6px;
     /* background-color: var(--blur-color); */
     backdrop-filter: blur(2px);
@@ -80,12 +80,6 @@
     border: 1px solid transparent;
     background-color: transparent;
 }
-
-/* .page-main-content-top-advertising-more:hover {
-    color: #0A3560;
-    border-color: #0A3560;
-    background-color: rgba(227, 227, 227, .5);
-} */
 
 .page-main-content-middle-coub-1::before, 
 .page-main-content-middle-coub-2::before, 
@@ -140,7 +134,7 @@
 
 .page-main-content-top-h-text-header{
     font-size: 1.55em;
-    color: #3E3F40;
+    color: var(--black-color);
     text-align: center;
     letter-spacing: -0.9px;
     white-space: nowrap;
@@ -154,7 +148,7 @@
 
 .page-main-content-top-h-text-tagline {
     font-size: 1em;
-    color: #3E3F40;
+    color: var(--black-color);
     text-align: center;
     margin-bottom: 1em;
 
@@ -240,7 +234,7 @@
 .page-main-content-middle-coub-title {
     font-size: 2em;
     z-index: 1;
-    color: #E3E3E3;
+    color: var(--white-color);
     letter-spacing: -0.6px;
     text-align: center;
     font-weight: 500;
@@ -289,7 +283,7 @@ video::-webkit-media-controls {
 }
 
 .page-main-content-bottom-title{
-    color: #E3E3E3;
+    color: var(--white-color);
     font-size: 2em;
     font-weight: 500;
 
@@ -434,7 +428,7 @@ video::-webkit-media-controls {
 
 @keyframes anime-page-main-top-middle-point-right {
     0% {  
-		transform: translateX(40%);
+		transform: translateX(3em);
         opacity: 0;
 	} 
     50%{
@@ -449,7 +443,7 @@ video::-webkit-media-controls {
 
 @keyframes anime-page-main-top-middle-point-left {
     0% {  
-		transform: translateX(-40%);
+		transform: translateX(-3em);
         opacity: 0;
 	} 
     50%{

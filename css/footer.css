@@ -1,5 +1,5 @@
 footer {
-    font-size: 20px;
+    font-size: 1rem;
     margin-left: 4.5em;
     background: linear-gradient(97deg, #242827 0%, #373737 0.01%, #181C21 100%);
     margin-top: 5em;
@@ -16,7 +16,7 @@ footer {
 }
 
 .footer-contacts-point {
-    color: #E3E3E3;
+    color: var(--white-color);
     font-size: .7em;
     letter-spacing: -0.16px;
     padding: .5em;
@@ -28,14 +28,14 @@ footer {
 .footer-contacts-point > svg {
     width: 1em;
     height: 1em;
-    stroke: #E3E3E3;
+    stroke: var(--white-color);
     margin-right: .5em;
 }
 
 .footer-form-title {
     font-size: 1em;
     font-weight: 500;
-    color: #E3E3E3;
+    color: var(--white-color);
     padding-bottom: .7em;
     text-align: center;
 }
@@ -46,7 +46,7 @@ footer {
 }
 
 .footer-contacts-social > a > svg  {
-    fill: #E3E3E3;
+    fill: var(--white-color);
     padding-left: .4em;
     width: 2em;
     height: 2em;

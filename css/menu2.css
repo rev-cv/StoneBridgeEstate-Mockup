@@ -1,8 +1,10 @@
 .expanded-header {
+    font-size: 1rem;
+    
     position: fixed;
     width: 30em;
     height: 100%;
-    background-color: #E3E3E3;
+    background-color: var(--white-color);
     box-shadow: 10px 0px 20px 0px rgba(0, 0, 0, 0.13);
 
     display: flex;

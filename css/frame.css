@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap');
 
+html {
+	font-size: 20px;
+}
+
 body {
     font-family: Raleway, sans-serif;
-    font-size: 19px;
+    font-size: 1rem;
 	flex-grow: 1;
 
 	display: flex;
 	flex-flow: column;
 
 	overflow-x: hidden;
-    background-color: #E3E3E3;
+    background-color: var(--white-color);
 }
 
 main {
@@ -41,4 +45,12 @@ main {
 	border-radius: 8px;
 }
 
+a {
+	color:  var(--blue-color);
+	transition: all .3s ease;
+}
+
+a:hover {
+	opacity: .8;
+}
 

@@ -1,12 +1,14 @@
 
 header {
+    font-size: 1rem;
+
     position: fixed;
     width: 4.5em;
     /* height: 100%; */
     top: 0;
     bottom: 0;
     left: 0;
-    background-color: #E3E3E3;
+    background-color: var(--white-color);
     box-shadow: 10px 0px 20px 0px rgba(0, 0, 0, 0.13);
 
     display: flex;
@@ -26,7 +28,7 @@ header {
 .menu-btn-open > svg {
     width: 2em;
     height: 2em;
-    fill: #3E3F40;
+    fill: var(--black-color);
 }
 
 .menu-btn-open:hover {
@@ -54,10 +56,9 @@ header {
 }
 
 .menu-bottom-btn-submit > .menu-bottom-btn-submit-content > svg {
-    font-size: 20px;
     width: 1em;
     height: 1em;
-    fill: #E3E3E3;
+    fill: var(--white-color);
 }
 
 /* menu-bottom-btn-submit > #ico-whatsapp, menu-bottom-btn-submit > #ico-email {
@@ -66,7 +67,7 @@ header {
 
 .menu-bottom-btn-submit-text {
     background-color: transparent;
-    color: #E3E3E3;
+    color: var(--white-color);
     font-size: 1.2em;
     white-space: nowrap;
     margin-left: 1em;
