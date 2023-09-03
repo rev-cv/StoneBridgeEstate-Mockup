@@ -56,6 +56,7 @@
 }
 
 .page-tender-widghet-price{
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -81,13 +82,22 @@
     margin-bottom: 1.5em;
 }
 
+.page-tender-widghet-feature > *:last-child {
+    margin-bottom: 0;
+}
+
 .page-tender-widghet-feature > .feature {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
 
     color: var(--black-color);
+    font-size: .8em; */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
     font-size: .8em;
+    grid-gap: .25em 1em ;
 }
 
 .page-tender-widghet-feature > .feature > div {
@@ -122,6 +132,21 @@
     margin-right: .5em;
 }
 
+.page-tender-widghet-feature > .more {
+    display: flex;
+    justify-content: flex-end;
+    /* padding-right: 2em; */
+}
+
+.page-tender-widghet-feature > .more > button {
+    border: 1px solid var(--black-color);
+    color: var(--black-color);
+    border-radius: 4px;
+    background-color: transparent;
+    padding: .5em 2em;
+    font-size: .8em;
+}
+
 .page-tender-widghet-feature > .environment,
 .page-tender-widghet-feature > .description {
     font-size: .8em;
@@ -145,16 +170,15 @@
 
 .page-tender-requests{
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
-    font-size: .5;
+    justify-content: space-around;
 }
 
-.page-tender-requests > button {
-    font-size: .7rem;
+.page-tender-requests > * {
+    min-width: 14em;
+    max-width: 14em;
     margin: .5em;
 }
-
 
 
 @media (max-width: 930px) {

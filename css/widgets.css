@@ -41,7 +41,7 @@ input {
 /* FORM SEARCH */
 
 .search {
-    font-size: 1rem;
+    font-size: .7rem;
     border: 1px solid var(--black-color);
     border-radius: 4px;
 
@@ -166,7 +166,7 @@ input {
 
 .switcher{
     /* padding: .7em; */
-    margin: .7em;
+    margin: .7em 0;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -274,8 +274,8 @@ input {
 /* RANGE */
 
 .range {
-    padding: .2em;
-    margin: .5em .7em;
+    /* padding: .2em; */
+    margin: .5em 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }

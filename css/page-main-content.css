@@ -79,6 +79,14 @@
     border-radius: 11px;
     border: 1px solid transparent;
     background-color: transparent;
+
+    text-decoration: underline;
+    opacity: .8;
+}
+
+.page-main-content-top-advertising-more:hover {
+    text-decoration: underline;
+    opacity: 1;
 }
 
 .page-main-content-middle-coub-1::before, 
@@ -113,6 +121,7 @@
     flex-direction: column;
     min-width: 22em;
     /* background-color: yellow; */
+    transform: translateX(5em) translateY(5em);
 }
 
 .page-main-content-top-h > .search {
@@ -306,6 +315,11 @@ video::-webkit-media-controls {
 .page-main-content-bottom-form-video > button {
     margin: 0 1em;
 }
+
+.page-main-content-bottom-form-video > input::placeholder {
+    color: var(--white-color); 
+}
+  
 
 @media (max-width: 930px) {
     .page-main-content-middle {

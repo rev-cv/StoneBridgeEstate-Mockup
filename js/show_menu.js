@@ -115,6 +115,7 @@ function toggleMenu() {
         document.querySelector(".expanded-header-submit"),
         ...document.querySelectorAll(".expanded-header-contacts-point"),
         ...document.querySelectorAll(".expanded-header-line"),
+        document.querySelector(".expanded-header > div.castle"),
     ]
 
 

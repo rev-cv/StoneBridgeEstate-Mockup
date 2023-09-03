@@ -109,7 +109,7 @@
     grid-column: 3 / 4;
     color: var(--black-color);
     font-size: .7em;
-    padding: 1em;
+    padding: 1em 0;
     line-height: 120%;
     animation: anime-page-about-elems .5s ease .9s 1 normal backwards
 }
