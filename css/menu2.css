@@ -58,8 +58,10 @@
 }
 
 .expanded-header > .search {
-    margin: 1em 10% 2em 10%;
-    display: none;
+    position: absolute;
+    top: 2em;
+    right: 2em;
+
 
     /* ↓ блок для анимации */
     opacity: 0;
@@ -276,7 +278,10 @@
     .expanded-header > .search {
         display: flex;
     }
-    
+
+    .expanded-header-form {
+        font-size: .7em;
+    }
 }
 
 

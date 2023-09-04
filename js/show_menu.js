@@ -259,4 +259,5 @@ document.querySelectorAll(".btn-connect-show-menu").forEach(btn => {
 
 document.querySelector(".expanded-header-submit").onclick = openSubmissionForm;
 document.querySelector(".menu-bottom-btn-submit").onclick = openSubmissionForm;
+document.querySelector(".page-main-content-top-h-btn").onclick = openSubmissionForm;
 
