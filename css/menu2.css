@@ -106,8 +106,7 @@
     position: relative;
 }
 
-.expanded-header > div.castle > div::before {
-    content: "";
+.expanded-header > div.castle > .castle-curtain {
     top: 0;
     bottom: 0;
     right: 2em;
@@ -118,10 +117,12 @@
 
     transform-origin: right;
 
-    animation-name: anime-castle;
+    z-index: 2;
+
+    /* animation-name: anime-castle;
     animation-duration: 3400ms;
     animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    animation-timing-function: linear; */
 }
 
 .expanded-header-caption-big,
