@@ -149,18 +149,18 @@ const url_7 = new URL('cat-2-4.html', window.location.href); // Street retail
 
 document.querySelectorAll(".page-catalog-panel-of-filters > label").forEach(chck => {
     if (chck.innerText === "Квартиры"){
-        chck.addEventListener('change', e => window.open(url_1));
+        chck.addEventListener('change', e => location.href = url_1);
     } else if (chck.innerText === "Пентхаусы"){
-        chck.addEventListener('change', e => window.open(url_2));
+        chck.addEventListener('change', e => location.href = url_2);
     } else if (chck.innerText === "Дома"){
-        chck.addEventListener('change', e => window.open(url_3));
+        chck.addEventListener('change', e => location.href = url_3);
     } else if (chck.innerText === "Офисы"){
-        chck.addEventListener('change', e => window.open(url_4));
+        chck.addEventListener('change', e => location.href = url_4);
     } else if (chck.innerText === "Торговая недвижимость"){
-        chck.addEventListener('change', e => window.open(url_5));
+        chck.addEventListener('change', e => location.href = url_5);
     } else if (chck.innerText === "Особняки"){
-        chck.addEventListener('change', e => window.open(url_6));
+        chck.addEventListener('change', e => location.href = url_6);
     } else if (chck.innerText === "Street retail"){
-        chck.addEventListener('change', e => window.open(url_7));
+        chck.addEventListener('change', e => location.href = url_7);
     } 
 })
