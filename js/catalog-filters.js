@@ -137,3 +137,30 @@ document.querySelector(
 
 
 
+//    ==__==
+
+const url_1 = new URL('cat-1-1.html', window.location.href); // квартиры
+const url_2 = new URL('cat-1-2.html', window.location.href); // пентхаусы
+const url_3 = new URL('cat-1-3.html', window.location.href); // дома
+const url_4 = new URL('cat-2-1.html', window.location.href); // Офисы
+const url_5 = new URL('cat-2-2.html', window.location.href); // Торговая недвижимость
+const url_6 = new URL('cat-2-3.html', window.location.href); // Особняки
+const url_7 = new URL('cat-2-4.html', window.location.href); // Street retail
+
+document.querySelectorAll(".page-catalog-panel-of-filters > label").forEach(chck => {
+    if (chck.innerText === "Квартиры"){
+        chck.addEventListener('change', e => window.open(url_1));
+    } else if (chck.innerText === "Пентхаусы"){
+        chck.addEventListener('change', e => window.open(url_2));
+    } else if (chck.innerText === "Дома"){
+        chck.addEventListener('change', e => window.open(url_3));
+    } else if (chck.innerText === "Офисы"){
+        chck.addEventListener('change', e => window.open(url_4));
+    } else if (chck.innerText === "Торговая недвижимость"){
+        chck.addEventListener('change', e => window.open(url_5));
+    } else if (chck.innerText === "Особняки"){
+        chck.addEventListener('change', e => window.open(url_6));
+    } else if (chck.innerText === "Street retail"){
+        chck.addEventListener('change', e => window.open(url_7));
+    } 
+})

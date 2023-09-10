@@ -267,23 +267,23 @@ if (ctb != null) {
 
 
 
-const catsleLogo = document.querySelector(".expanded-header > .castle")
-catsleLogo.insertAdjacentHTML('afterbegin', '<div class="castle-curtain"></div>')
-const catsleCurtain = catsleLogo.querySelector(".castle-curtain")
+// const catsleLogo = document.querySelector(".expanded-header > .castle")
+// catsleLogo.insertAdjacentHTML('afterbegin', '<div class="castle-curtain"></div>')
+// const catsleCurtain = catsleLogo.querySelector(".castle-curtain")
 
-const durCastle = 3400;
-function strtAnimCastle() {
-    catsleCurtain.style.transition = ""
-    catsleCurtain.style.transform = "scaleX(1)"
+// const durCastle = 3400;
+// function strtAnimCastle() {
+//     catsleCurtain.style.transition = ""
+//     catsleCurtain.style.transform = "scaleX(1)"
 
-    setTimeout(() => {
-        catsleCurtain.style.transition = `transform ${durCastle}ms linear`;
-        catsleCurtain.style.transform = "scaleX(0)"
-    }, 100)
+//     setTimeout(() => {
+//         catsleCurtain.style.transition = `transform ${durCastle}ms linear`;
+//         catsleCurtain.style.transform = "scaleX(0)"
+//     }, 100)
 
-    setTimeout(() => {
-        strtAnimCastle()
-    }, durCastle + 100)
-}
+//     setTimeout(() => {
+//         strtAnimCastle()
+//     }, durCastle + 100)
+// }
 
-strtAnimCastle()
+// strtAnimCastle()
